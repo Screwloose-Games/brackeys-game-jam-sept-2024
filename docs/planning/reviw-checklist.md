@@ -1,0 +1,23 @@
+# Review Checklist
+
+- [ ] You can pause the game
+- [ ] There is a pause menu visible when the game is paused
+- [ ] The pause menu includes settings.
+- [ ] The game has music.
+- [ ] Has a title screen
+- [ ] Has a settings option on the title screen.
+- [ ] Has a sound settings option in the settings menu.
+- [ ] Mechanics are introduced gradually (close to 1 at a time)
+- [ ] The player has a chance to practice a mechanic in increasing difficulty (requiring more precision) before adding a new mechanic.
+- [ ] There is music on the title screen.
+- [ ] Within 15 seconds of where the player has control, the player’s progress in game is evident through feedback at an interval of no less than 5, 10, 15 seconds.
+- [ ] The visual style is consistent between the title screen and the game.
+- [ ] The camera is regularly positioned so that the player can see what they need to see (Including detail and surroundings)
+- [ ] The game supports a game controller.
+- [ ] When you hover over an input in a title screen or settings, the selected button has a focus state.
+- [ ] There is a counter that expresses progress.
+- [ ] There is a leaderboard
+- [ ] The player can bring up tutorial info at any time in a codex through pause or other menu
+- [ ] When the player dies, they start right back “where they need to” with only an appropriate amount of effort required to get back where they died.
+- [ ] Achievements are tracked
+- [ ] The style of the UI thematically matches the game (ideas: https://www.gameuidatabase.com/)

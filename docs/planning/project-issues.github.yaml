@@ -1,0 +1,113 @@
+milestones:
+  - title: Complete Initial Game Design
+    description: Design genre, themes, story, game loop, look/feel
+  - title: Create Technical Specifications
+    description: Create technical specifications for screen, sprites, speeds
+  - title: Basic Game Setup
+    description: Set up the basic game structure, size, and sprites
+  - title: Create Build Pipeline and automation
+    description: "Set up build automation and publish the game on itch.io. Add github and butler secrets in GitHub. Add export presets in Godot project folder"
+  - title: Implement Player Movement and Health Systems
+    description: Implement player movement and health systems.
+  - title: Implement Enemy Spawning, Behavior, and Damage Systems
+    description: Implement enemy spawning, behavior, and damage systems.
+  - title: Develop Combat System with Weapons and Enemy Health/Death
+    description: Implement weapon mechanics and enemy health/death systems.
+  - title: Implement UI Elements and Game State Management
+    description: Implement the death screen, game summary, and other UI elements.
+  - title: Add Power-Ups and Item Drops
+    description: Implement power-up systems and weapon drops/upgrades.
+  - title: Create Environmental Interactions with Physics Objects
+    description: Implement interactions with physics objects.
+  - title: Design Boss Fight and Level Completion Mechanics
+    description: Implement the boss fight and level completion mechanics.
+  - title: Add mobile support
+    description: Add virtual joypad. Enable virtual keyboard in web export. Set image Compression to lossless.
+  - title: Test and resolve Critical Bugs
+    description: Conduct game testing and fix bugs that inhibit gameplay or intended UX
+  - title: Test and calibrate game balance
+    description: Conduct game testing with users and calibrate difficulty
+  - title: Add Polish, Flair, and Sauce
+    description: Add enhanced lighting, particles, shaders, and other effects
+  - title: Fix minor bugs
+    description: Continue game testing, fix small bugs
+
+issues:
+  - title: Complete game design Document
+    body: Complete game design Design genre, themes, story
+    milestone: Complete Initial Game Design
+  - title: Design loop, look / feel
+    body: Complete game design Design game loop, look/feel
+    milestone: Complete Initial Game Design
+  - title: Define graphics specifications
+    body: Specify screen size, sprite sizes, animation lengths
+    milestone: Create Technical Specifications
+  - title: Create project in engine with basic scene structure
+    body: Set up the project in Godot. Create the basic game scene structure (e.g., main scene, player scene, enemy scene).
+    milestone: Basic Game Setup
+  - title: Add level timer and progress bar
+    body: Implement the countdown timer starting at 10 minutes. Create a visual timer bar that decreases over time.
+    milestone: Basic Game Setup
+  - title: Set up build pipeline for web builds
+    body: Set up a build pipeline to automate the process of creating builds. Configure the pipeline to generate web builds compatible with itch.io.
+    milestone: Create Build Pipeline and automation
+  - title: Publish initial build on itch.io
+    body: Create an itch.io account and set up a project page. Publish the initial web build on itch.io for early feedback.
+    milestone: Create Build Pipeline and automation
+  - title: Implement player movement in 8 directions
+    body: Implement player movement in 8 directions using keyboard (WASD or arrow keys). Add support for controller input.
+    milestone: Implement Player Movement and Health Systems
+  - title: Add player health system and UI display
+    body: Add a health system for the player. Display player health on the UI.
+    milestone: Implement Player Movement and Health Systems
+  - title: Implement enemy spawning outside the map
+    body: Implement enemy spawning outside the map with a mix determined by percentage (50% Bouncers, 50% Teachers).
+    milestone: Implement Enemy Spawning, Behavior, and Damage Systems
+  - title: Implement enemy behavior and damage properties
+    body: Implement movement logic for enemies to move toward the player. Create health and damage properties for enemies. Implement enemy damage on contact with the player.
+    milestone: Implement Enemy Spawning, Behavior, and Damage Systems
+  - title: Develop basic weapon mechanics
+    body: Implement basic weapon with hit_box and damage. Detect collision between weapon and enemy hurt_box to apply damage.
+    milestone: Develop Combat System with Weapons and Enemy Health/Death
+  - title: Add enemy health system and death logic
+    body: Implement health system for enemies. Add death logic and despawn for enemies when health reaches zero. Implement enemy death animation.
+    milestone: Develop Combat System with Weapons and Enemy Health/Death
+  - title: Create death screen and game summary UI
+    body: Implement death screen showing total enemies killed, total time survived, and a restart button.
+    milestone: Implement UI Elements and Game State Management
+  - title: Display total enemies killed and time survived
+    body: Display total enemies killed of each type. Display total time survived.
+    milestone: Implement UI Elements and Game State Management
+  - title: Implement power-up system and logic
+    body: Implement “energy drink” power-up that refills player health. Allow enemies to drop power-ups on despawn. Implement logic for player to pick up and apply power-ups.
+    milestone: Add Power-Ups and Item Drops
+  - title: Add weapon drops and upgrade mechanics
+    body: Allow enemies to drop weapons (e.g., samurai sword). Implement weapon equipping and upgrading mechanics.
+    milestone: Add Power-Ups and Item Drops
+  - title: Implement interactions with physics objects
+    body: Implement basic trash and physics objects that can be pushed around and collided with.
+    milestone: Create Environmental Interactions with Physics Objects
+  - title: Design and implement boss fight
+    body: Implement Boss 1 (Big Bouncer) with melee attack and throwing beer bottles. Trigger boss fight when survival timer reaches 90 seconds left.
+    milestone: Design Boss Fight and Level Completion Mechanics
+  - title: Create level completion screen and mechanics
+    body: Implement level completion screen showing number of each type of enemy killed. Add a continue button that restarts Level 1 for the MVP.
+    milestone: Design Boss Fight and Level Completion Mechanics
+  - title: Add visual and sound effects for polishing
+    body: Add visual and sound effects to enhance gameplay experience. Improve UI/UX elements for clarity and usability.
+    milestone: Add Polish, Flair, and Sauce
+  - title: Add mobile support
+    body: |
+      - [ ] Create local web build pipeline, auto reload web build on web export (With set export path).
+      - [ ] Add virtual joypad. Ensure adequate size, placement, deadzone, clampzone.
+      - [ ] Add mobile pause button.
+      - [ ] Add mobile action buttons.
+      - [ ] Display controls based on `DisplayServer.is_touchscreen_available()`.
+      - [ ] Enable virtual keyboard in web export settings.
+      - [ ] Ensure text inputs at top of screen for use of virtual keyboard and grab focus.
+      - [ ] Set image Compression to lossless.
+      - [ ] Allow VRAM compression for mobile in web export settings.
+      - [ ] Create Android export.
+      - [ ] Create iOS export.
+      - [ ] Project settings allow emulate mouse from touch, touch from mouse.
+    milestone: Add mobile support

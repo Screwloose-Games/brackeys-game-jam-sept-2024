@@ -1,0 +1,6 @@
+docs/idea*
+releases/
+*.tmp
+.DS_Store
+movies/
+.env
