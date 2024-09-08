@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=6 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
+[ext_resource type="Script" path="res://player/jump_indicator_arrow.gd" id="3_q38sm"]
+[ext_resource type="Texture2D" uid="uid://v7tjgexkoo3i" path="res://assets/art/arrow.png" id="4_dd7dj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
@@ -16,3 +18,33 @@ shape = SubResource("RectangleShape2D_w0k0w")
 [node name="Forg" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("2_1smhq")
+
+[node name="ArrowRotationPivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="JumpArrow" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_top = -17.0
+offset_bottom = -17.0
+pivot_offset = Vector2(0, 17)
+script = ExtResource("3_q38sm")
+
+[node name="ColorRect" type="ColorRect" parent="JumpArrow"]
+visible = false
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 10.0
+
+[node name="TextureRect" type="TextureRect" parent="JumpArrow"]
+layout_mode = 0
+offset_left = -6.09814
+offset_top = 11.3209
+offset_right = 4.90186
+offset_bottom = 37.3209
+rotation = 3.14159
+pivot_offset = Vector2(6.04907, -0.160435)
+texture = ExtResource("4_dd7dj")
+stretch_mode = 5
