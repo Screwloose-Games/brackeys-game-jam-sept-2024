@@ -40,6 +40,5 @@ func make_trail():
   current_trail = JumpTrail.create()
   add_child(current_trail)
   current_trail.position = trail_offset.position
-  #what I wanted to do instead
-  #trail_offset.add_child(current_trail)
+
   

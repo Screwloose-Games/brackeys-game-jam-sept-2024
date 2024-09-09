@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://player/jump_indicator_arrow.gd" id="3_q38sm"]
 [ext_resource type="Texture2D" uid="uid://v7tjgexkoo3i" path="res://assets/art/arrow.png" id="4_dd7dj"]
 [ext_resource type="Script" path="res://player/frog_hop_audio.gd" id="5_qwimu"]
-[ext_resource type="AudioStream" uid="uid://ceqh3hfognftr" path="res://assets/sound/frog_jump_start.wav" id="6_qmwpb"]
-[ext_resource type="AudioStream" uid="uid://dr5r41n4jwc8v" path="res://assets/sound/frog_land.wav" id="7_fk1j5"]
+[ext_resource type="AudioStream" path="res://assets/sound/frog_jump_start.wav" id="6_qmwpb"]
+[ext_resource type="AudioStream" path="res://assets/sound/frog_land.wav" id="7_fk1j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
