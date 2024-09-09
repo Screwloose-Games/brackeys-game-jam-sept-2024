@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdqar6llu7m32"]
+
+[ext_resource type="Script" path="res://trail/jump_trail.gd" id="1_ldtjm"]
+
+[sub_resource type="Curve" id="Curve_34byc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_uoqxr"]
+colors = PackedColorArray(0.404437, 0.609111, 0.603608, 1, 0.568461, 0.95527, 0.657281, 1)
+
+[node name="Line2D" type="Line2D"]
+top_level = true
+z_index = -1
+points = PackedVector2Array(0, 0)
+width = 2.0
+width_curve = SubResource("Curve_34byc")
+gradient = SubResource("Gradient_uoqxr")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("1_ldtjm")
+color_start = Color(0.109804, 0.945098, 0.45098, 0.905882)
+color_end = Color(0.27451, 0.215686, 0.980392, 0.937255)
+line_width = 2
