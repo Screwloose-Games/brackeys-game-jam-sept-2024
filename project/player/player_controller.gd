@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export  var base_jump_velocity = -10.0
+@export var damping_factor = 0.6
+
 
 @onready var jump_arrow: JumpArrow = %JumpArrow
 
@@ -25,6 +27,7 @@ func _physics_process(delta: float) -> void:
     jumping = false
     velocity += get_gravity() * delta
   else:
-    if not jumping:
-      velocity = Vector2.ZERO
+    velocity.x *= damping_factor
+    if abs(velocity.x) < 0.1:
+        velocity.x = 0
   move_and_slide()

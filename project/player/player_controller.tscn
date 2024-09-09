@@ -32,12 +32,6 @@ offset_bottom = -17.0
 pivot_offset = Vector2(0, 17)
 script = ExtResource("3_q38sm")
 
-[node name="ColorRect" type="ColorRect" parent="JumpArrow"]
-visible = false
-layout_mode = 0
-offset_right = 1.0
-offset_bottom = 10.0
-
 [node name="TextureRect" type="TextureRect" parent="JumpArrow"]
 layout_mode = 0
 offset_left = -6.09814
