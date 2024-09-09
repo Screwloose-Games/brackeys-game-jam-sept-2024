@@ -1,4 +1,4 @@
-class_name Jump_Trail
+class_name JumpTrail
 extends Line2D
 
 const MAX_POINTS: int = 20
@@ -26,7 +26,7 @@ func stop() -> void:
   clear_points()
   queue_free()
   
-static func create() -> Jump_Trail:
+static func create() -> JumpTrail:
   var jump_trail_scn = preload("res://trail/jump_trail.tscn")
   return jump_trail_scn.instantiate()
 
