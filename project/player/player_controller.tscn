@@ -11,8 +11,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
 
-[node name="PlayerController" type="CharacterBody2D"]
+[node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("trail_offset")]
 script = ExtResource("1_pi2rc")
+trail_offset = NodePath("TrailOffset")
+
+[node name="TrailOffset" type="Marker2D" parent="."]
+show_behind_parent = true
+position = Vector2(-2, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -3)
