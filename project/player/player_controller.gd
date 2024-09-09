@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export  var base_jump_velocity = -10.0
 @export var damping_factor = 0.6
 
-
 @onready var jump_arrow: JumpArrow = %JumpArrow
 
 var jumping = false
@@ -21,6 +20,7 @@ func _on_jump(angle: float, power: float):
         var v_y = direction.y * power * base_jump_velocity
         velocity.y = v_y
         jumping = true
+        $frog_hop_audio._play_hop()
         
 func _physics_process(delta: float) -> void:
   if not is_on_floor():
