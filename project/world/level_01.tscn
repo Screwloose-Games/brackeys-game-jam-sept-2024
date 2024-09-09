@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqkibnwrcu7j7"]
+[gd_scene load_steps=3 format=3 uid="uid://cqkibnwrcu7j7"]
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
-[ext_resource type="Script" path="res://player/frog_hop_audio.gd" id="2_1cnq3"]
 [ext_resource type="PackedScene" uid="uid://cspieb7a2kwxj" path="res://environment/platforms/platform.tscn" id="2_ynxn1"]
-[ext_resource type="AudioStream" uid="uid://ceqh3hfognftr" path="res://assets/sound/frog_jump_start.wav" id="3_8gpa4"]
-[ext_resource type="AudioStream" uid="uid://dr5r41n4jwc8v" path="res://assets/sound/frog_land.wav" id="4_iy6kw"]
 
 [node name="Level01" type="Node2D"]
 
@@ -15,11 +12,6 @@
 [node name="Camera2D" type="Camera2D" parent="PlayerController"]
 position = Vector2(0, -20)
 zoom = Vector2(4, 4)
-
-[node name="frog_hop_audio" type="AudioStreamPlayer2D" parent="PlayerController"]
-script = ExtResource("2_1cnq3")
-hop_sound = ExtResource("3_8gpa4")
-landing_sound = ExtResource("4_iy6kw")
 
 [node name="Ground" parent="." instance=ExtResource("2_ynxn1")]
 position = Vector2(0, 4)

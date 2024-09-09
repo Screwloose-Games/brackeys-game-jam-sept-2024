@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=9 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
 [ext_resource type="Script" path="res://player/jump_indicator_arrow.gd" id="3_q38sm"]
 [ext_resource type="Texture2D" uid="uid://v7tjgexkoo3i" path="res://assets/art/arrow.png" id="4_dd7dj"]
+[ext_resource type="Script" path="res://player/frog_hop_audio.gd" id="5_qwimu"]
+[ext_resource type="AudioStream" uid="uid://ceqh3hfognftr" path="res://assets/sound/frog_jump_start.wav" id="6_qmwpb"]
+[ext_resource type="AudioStream" uid="uid://dr5r41n4jwc8v" path="res://assets/sound/frog_land.wav" id="7_fk1j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
@@ -42,3 +45,8 @@ rotation = 3.14159
 pivot_offset = Vector2(6.04907, -0.160435)
 texture = ExtResource("4_dd7dj")
 stretch_mode = 5
+
+[node name="frog_hop_audio" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("5_qwimu")
+hop_sound = ExtResource("6_qmwpb")
+landing_sound = ExtResource("7_fk1j5")
