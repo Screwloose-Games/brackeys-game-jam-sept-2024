@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var jumping = false
 var current_trail: JumpTrail
+var landed = false
 
 func _ready():
   jump_arrow.jump.connect(_on_jump)
@@ -22,13 +23,19 @@ func _on_jump(angle: float, power: float):
         var v_y = direction.y * power * base_jump_velocity
         velocity.y = v_y
         jumping = true
+        $frog_hop_audio._play_hop()
         make_trail()
         
 func _physics_process(delta: float) -> void:
   if not is_on_floor():
+    landed = false
     jumping = false
     velocity += get_gravity() * delta
   else:
+    if not landed:
+      $frog_hop_audio._play_landing(false)
+      landed = true
+    
     velocity.x *= damping_factor
     if abs(velocity.x) < 0.1:
         velocity.x = 0
