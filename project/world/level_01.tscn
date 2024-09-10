@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
 [ext_resource type="PackedScene" uid="uid://cspieb7a2kwxj" path="res://environment/platforms/platform.tscn" id="2_ynxn1"]
+[ext_resource type="PackedScene" uid="uid://c6walfh0cseu5" path="res://water/water.tscn" id="3_tatpc"]
 [ext_resource type="Script" path="res://environment/weather/weather_sfx.gd" id="3_xfo7u"]
 [ext_resource type="AudioStream" uid="uid://b3lvdph5xa7v" path="res://assets/sound/sfx/weather/heavy_rain.wav" id="4_ekion"]
 [ext_resource type="AudioStream" uid="uid://bsiq4dlk48ei" path="res://assets/sound/sfx/weather/light_rain.wav" id="5_ie0p8"]
@@ -43,6 +44,11 @@ position = Vector2(6, -149)
 
 [node name="Platform9" parent="." instance=ExtResource("2_ynxn1")]
 position = Vector2(-61, -146)
+
+[node name="Water" parent="." instance=ExtResource("3_tatpc")]
+unique_name_in_owner = true
+water_rate = 0.005
+starting_water_height = 30.0
 
 [node name="weather_sfx" type="Node" parent="."]
 script = ExtResource("3_xfo7u")

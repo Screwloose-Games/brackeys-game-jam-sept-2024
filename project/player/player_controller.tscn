@@ -14,8 +14,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paoka"]
+size = Vector2(9, 5)
+
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("trail_offset")]
 script = ExtResource("1_pi2rc")
+water_damping_factor = 0.9
 trail_offset = NodePath("TrailOffset")
 
 [node name="TrailOffset" type="Marker2D" parent="."]
@@ -61,3 +65,14 @@ landing = ExtResource("7_kisgi")
 submerge = ExtResource("8_pckv1")
 emerge = ExtResource("9_neh4p")
 swim = ExtResource("10_wo0y3")
+
+[node name="WaterDetector" type="Area2D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
+visible = false
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_paoka")
+
+[connection signal="area_entered" from="WaterDetector" to="." method="_on_water_detector_area_entered"]
+[connection signal="area_exited" from="WaterDetector" to="." method="_on_water_detector_area_exited"]
