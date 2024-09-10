@@ -1,5 +1,8 @@
+class_name PlayerCharacter
 extends CharacterBody2D
 enum PlayerState {land,water,breached,}
+signal breached()
+signal exit_breached()
 
 @export  var base_jump_velocity = -10.0
 @export var damping_factor = 0.6
@@ -103,24 +106,28 @@ func _on_water_detector_area_entered(area:Area2D):
   if player_state == PlayerState.water:
     if area.collision_layer == breach_layer:
       player_state = PlayerState.breached
+      breached.emit()
       velocity = Vector2.ZERO
       #print("entering breached - play breaching water sound here")
   if player_state == PlayerState.land or PlayerState.breached:
     if area.collision_layer == water_layer:
       #print("entered water - play landing in water sound")
       jump_from_breach = false
+      exit_breached.emit()
       player_state = PlayerState.water
   
 func _on_water_detector_area_exited(area):
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer:
       player_state = PlayerState.land
+      exit_breached.emit()
       jump_from_breach = false
       #print("on land - play jumping out of water sound")
   if player_state == PlayerState.water:
     if area.collision_layer == water_layer:
       player_state = PlayerState.breached
       velocity = Vector2.ZERO
+      breached.emit()
       #print("entering breached - play breaching water sound here")
       
     
