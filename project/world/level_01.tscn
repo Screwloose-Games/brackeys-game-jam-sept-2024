@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqkibnwrcu7j7"]
+[gd_scene load_steps=4 format=3 uid="uid://cqkibnwrcu7j7"]
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
 [ext_resource type="PackedScene" uid="uid://cspieb7a2kwxj" path="res://environment/platforms/platform.tscn" id="2_ynxn1"]
+[ext_resource type="PackedScene" uid="uid://c6walfh0cseu5" path="res://water/water.tscn" id="3_tatpc"]
 
 [node name="Level01" type="Node2D"]
 
@@ -40,3 +41,8 @@ position = Vector2(6, -149)
 
 [node name="Platform9" parent="." instance=ExtResource("2_ynxn1")]
 position = Vector2(-61, -146)
+
+[node name="Water" parent="." instance=ExtResource("3_tatpc")]
+unique_name_in_owner = true
+water_rate = 0.005
+starting_water_height = 30.0
