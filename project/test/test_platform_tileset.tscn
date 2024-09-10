@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chmc35lo2f87f"]
+
+[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="1_w01mx"]
+
+[node name="TestPlatformTileset" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_w01mx")]
