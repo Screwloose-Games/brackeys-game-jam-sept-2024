@@ -2,6 +2,7 @@ class_name JumpArrow
 extends Control
 
 signal jump(angle: float, power: float)
+signal jump_preview(angle: float, power: float)
 
 @export var max_jump_power = 40.0
 
@@ -44,3 +45,4 @@ func _process(delta: float) -> void:
         var angle = direction.angle() + 1.5 * PI
         texture_rect.scale = power * Vector2(1, 1) / max_jump_power
         rotation = angle
+        jump_preview.emit(rotation - 1.5 * PI,power)

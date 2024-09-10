@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1l5w5vvpwj4"]
+
+[ext_resource type="Script" path="res://trajectory/trajectory.gd" id="1_8fmq8"]
+[ext_resource type="Texture2D" uid="uid://dik4sfiemjyn" path="res://assets/art/dot_texture.png" id="1_gtxyd"]
+
+[node name="Trajectory" type="Line2D"]
+texture_repeat = 2
+points = PackedVector2Array(1, 2, 176, 69, 275, 129)
+width = 6.98
+default_color = Color(1, 1, 1, 0.345098)
+texture = ExtResource("1_gtxyd")
+texture_mode = 1
+script = ExtResource("1_8fmq8")
