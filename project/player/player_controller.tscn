@@ -19,6 +19,7 @@ size = Vector2(8, 5)
 size = Vector2(9, 5)
 
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("trail_offset")]
+z_index = 2
 script = ExtResource("1_pi2rc")
 water_damping_factor = 0.9
 trail_offset = NodePath("TrailOffset")

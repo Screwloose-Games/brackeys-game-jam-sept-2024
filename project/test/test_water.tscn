@@ -27,6 +27,7 @@ tile_set = ExtResource("1_ed8dy")
 
 [node name="PlayerController" parent="." instance=ExtResource("3_xo6q4")]
 position = Vector2(40, -18)
+water_breach_jump_boost = 1
 
 [node name="Camera2D" type="Camera2D" parent="PlayerController"]
 position = Vector2(0, -20)
