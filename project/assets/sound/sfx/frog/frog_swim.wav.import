@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bsv6b1wmhlogx"
-path="res://.godot/imported/frog_swim.wav-7f8253e34aeb8bf56012fd985525052d.sample"
+path="res://.godot/imported/frog_swim.wav-70e714d2637e829d9cbd87fabee2c645.sample"
 
 [deps]
 
-source_file="res://assets/sound/frog/frog_swim.wav"
-dest_files=["res://.godot/imported/frog_swim.wav-7f8253e34aeb8bf56012fd985525052d.sample"]
+source_file="res://assets/sound/sfx/frog/frog_swim.wav"
+dest_files=["res://.godot/imported/frog_swim.wav-70e714d2637e829d9cbd87fabee2c645.sample"]
 
 [params]
 

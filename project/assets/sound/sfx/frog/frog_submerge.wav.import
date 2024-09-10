@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dksok0otjmivm"
-path="res://.godot/imported/frog_submerge.wav-49ad3de411ec783c687d1fedcce0418a.sample"
+path="res://.godot/imported/frog_submerge.wav-ce33dad6c8e2929a0edb49686caa76e2.sample"
 
 [deps]
 
-source_file="res://assets/sound/frog/frog_submerge.wav"
-dest_files=["res://.godot/imported/frog_submerge.wav-49ad3de411ec783c687d1fedcce0418a.sample"]
+source_file="res://assets/sound/sfx/frog/frog_submerge.wav"
+dest_files=["res://.godot/imported/frog_submerge.wav-ce33dad6c8e2929a0edb49686caa76e2.sample"]
 
 [params]
 

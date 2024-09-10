@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3lvdph5xa7v"
-path="res://.godot/imported/light_rain_loop.wav-089765c2a9a69c20df13d6046e5259e1.sample"
+path="res://.godot/imported/heavy_rain.wav-5ed6fc87a9521a5e96d1950a92d4710e.sample"
 
 [deps]
 
-source_file="res://assets/sound/light_rain_loop.wav"
-dest_files=["res://.godot/imported/light_rain_loop.wav-089765c2a9a69c20df13d6046e5259e1.sample"]
+source_file="res://assets/sound/sfx/weather/heavy_rain.wav"
+dest_files=["res://.godot/imported/heavy_rain.wav-5ed6fc87a9521a5e96d1950a92d4710e.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
+edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0

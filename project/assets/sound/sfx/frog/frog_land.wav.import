@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://nbcgr1tmxlep"
-path="res://.godot/imported/frog_land.wav-774f83d6b209b1cdce96e87d27919d44.sample"
+path="res://.godot/imported/frog_land.wav-d30a21a9cd83531a9da0d2c9dad7d421.sample"
 
 [deps]
 
-source_file="res://assets/sound/frog/frog_land.wav"
-dest_files=["res://.godot/imported/frog_land.wav-774f83d6b209b1cdce96e87d27919d44.sample"]
+source_file="res://assets/sound/sfx/frog/frog_land.wav"
+dest_files=["res://.godot/imported/frog_land.wav-d30a21a9cd83531a9da0d2c9dad7d421.sample"]
 
 [params]
 
