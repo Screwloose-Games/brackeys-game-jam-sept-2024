@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=15 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
+[ext_resource type="SpriteFrames" uid="uid://bf6o5b3htfdg8" path="res://assets/art/frog_anim.aseprite" id="3_442lq"]
 [ext_resource type="Script" path="res://player/jump_indicator_arrow.gd" id="3_q38sm"]
 [ext_resource type="Texture2D" uid="uid://v7tjgexkoo3i" path="res://assets/art/arrow.png" id="4_dd7dj"]
 [ext_resource type="Script" path="res://player/frog_hop_audio.gd" id="5_ab0d2"]
@@ -35,6 +36,10 @@ shape = SubResource("RectangleShape2D_w0k0w")
 [node name="Forg" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("2_1smhq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_442lq")
+animation = &"apex"
 
 [node name="ArrowRotationPivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
