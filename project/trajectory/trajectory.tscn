@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dik4sfiemjyn" path="res://assets/art/dot_texture.png" id="1_gtxyd"]
 
 [node name="Trajectory" type="Line2D"]
+z_index = -1
 texture_repeat = 2
 points = PackedVector2Array(1, 2, 176, 69, 275, 129)
-width = 6.98
+width = 5.635
 default_color = Color(1, 1, 1, 0.345098)
 texture = ExtResource("1_gtxyd")
 texture_mode = 1
