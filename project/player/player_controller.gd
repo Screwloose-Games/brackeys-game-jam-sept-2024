@@ -3,6 +3,8 @@ extends CharacterBody2D
 enum PlayerState {land,water,breached,}
 signal breached()
 signal exit_breached()
+signal landed()
+signal state_changed(new_state: PlayerState)
 
 @export  var base_jump_velocity = -10.0
 @export var damping_factor = 0.6
@@ -16,12 +18,16 @@ signal exit_breached()
 
 var jumping = false
 var current_trail: JumpTrail
-var landed = false
+var _is_on_floor = false
 var jump_from_breach: bool = false
 var water_layer: int = 4
 var breach_layer: int = 8
 var just_jumped = false
-@export var player_state: PlayerState = PlayerState.water
+@export var player_state: PlayerState = PlayerState.water:
+  set(val):
+    if val != player_state:
+      state_changed.emit(val)
+    player_state = val
 
 
 func _ready():
@@ -71,13 +77,14 @@ func _physics_process(delta: float) -> void:
   match player_state:
     PlayerState.land:
       if not is_on_floor():
-        landed = false
+        _is_on_floor = false
         jumping = false
         velocity += get_gravity() * delta
       else:
-        if not landed:
+        if not _is_on_floor:
           $frog_hop_audio._play_landing(false)
-          landed = true
+          _is_on_floor = true
+          landed.emit()
         if not just_jumped:
           velocity.x *= damping_factor
         if abs(velocity.x) < 0.1:

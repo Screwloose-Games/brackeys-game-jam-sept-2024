@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=17 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
 [ext_resource type="SpriteFrames" uid="uid://ch7uwxt6kdxx0" path="res://assets/art/frog_anim.res" id="3_figa6"]
 [ext_resource type="Script" path="res://player/jump_indicator_arrow.gd" id="3_q38sm"]
+[ext_resource type="Script" path="res://player/animated_sprite_2d.gd" id="4_5hect"]
 [ext_resource type="Texture2D" uid="uid://v7tjgexkoo3i" path="res://assets/art/arrow.png" id="4_dd7dj"]
 [ext_resource type="Script" path="res://player/frog_hop_audio.gd" id="5_ab0d2"]
+[ext_resource type="Script" path="res://player/flipper.gd" id="5_mx0sn"]
 [ext_resource type="AudioStream" uid="uid://db8t166gdd7gq" path="res://assets/sound/sfx/frog/frog_jump_start.wav" id="6_d7pdq"]
 [ext_resource type="AudioStream" uid="uid://nbcgr1tmxlep" path="res://assets/sound/sfx/frog/frog_land.wav" id="7_kisgi"]
 [ext_resource type="AudioStream" uid="uid://dksok0otjmivm" path="res://assets/sound/sfx/frog/frog_submerge.wav" id="8_pckv1"]
@@ -34,12 +36,21 @@ position = Vector2(-1, -3)
 shape = SubResource("RectangleShape2D_w0k0w")
 
 [node name="Forg" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 texture = ExtResource("2_1smhq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Flippable" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
+unique_name_in_owner = true
 sprite_frames = ExtResource("3_figa6")
 animation = &"croak"
+script = ExtResource("4_5hect")
+
+[node name="Flipper" type="Node" parent="Flippable"]
+script = ExtResource("5_mx0sn")
 
 [node name="ArrowRotationPivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -74,6 +85,7 @@ emerge = ExtResource("9_neh4p")
 swim = ExtResource("10_wo0y3")
 
 [node name="WaterDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
