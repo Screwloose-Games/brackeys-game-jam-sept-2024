@@ -13,8 +13,6 @@ var start_transition : bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
   _play_rain()
-  await get_tree().create_timer(5.0).timeout
-  _change_rain(true)
   pass # Replace with function body.
 
 
