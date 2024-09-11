@@ -124,11 +124,13 @@ func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
   
 func _toggle_water_effect(is_under_water : bool) -> void:
   if (is_under_water):
-    var tween = get_tree().create_tween()
-    tween.tween_property(lps_filter, ":cutoff_hz", cutoff, filter_transition_time)
-    tween.tween_property(lps_filter, ":resonance", resonance, filter_transition_time)
+    if (is_instance_valid(get_tree())):
+      var tween = get_tree().create_tween()
+      tween.tween_property(lps_filter, ":cutoff_hz", cutoff, filter_transition_time)
+      tween.tween_property(lps_filter, ":resonance", resonance, filter_transition_time)
   else:
-    var tween = get_tree().create_tween()
-    tween.tween_property(lps_filter, ":cutoff_hz", 20500, filter_transition_time)
-    tween.tween_property(lps_filter, ":resonance", 0.5, filter_transition_time)
+    if (is_instance_valid(get_tree())):
+      var tween = get_tree().create_tween()
+      tween.tween_property(lps_filter, ":cutoff_hz", 20500, filter_transition_time)
+      tween.tween_property(lps_filter, ":resonance", 0.5, filter_transition_time)
   pass
