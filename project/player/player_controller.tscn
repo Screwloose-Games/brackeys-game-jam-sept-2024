@@ -39,7 +39,7 @@ texture = ExtResource("2_1smhq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_442lq")
-animation = &"apex"
+animation = &"croak_end"
 
 [node name="ArrowRotationPivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
