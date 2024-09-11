@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin"
-type="SpriteFrames"
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
 uid="uid://cq5b24oj247i0"
 path="res://.godot/imported/frog_master.aseprite-002485741a88302a2bda4066a53f8997.res"
 
@@ -12,7 +12,3 @@ dest_files=["res://.godot/imported/frog_master.aseprite-002485741a88302a2bda4066
 
 [params]
 
-split_layers=false
-exclude_layers_pattern=""
-only_visible_layers=true
-sheet_type="Packed"
