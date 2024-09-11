@@ -20,6 +20,7 @@ var landed = false
 var jump_from_breach: bool = false
 var water_layer: int = 4
 var breach_layer: int = 8
+var just_jumped = false
 @export var player_state: PlayerState = PlayerState.water
 
 
@@ -31,6 +32,8 @@ func _on_jump(angle: float, power: float):
   match player_state:
     PlayerState.land:
       if is_on_floor():
+        just_jumped = true
+        just_jumped_delay()
         var direction = Vector2(cos(angle), sin(angle))
         
         var v_x = direction.x * power * base_jump_velocity
@@ -75,8 +78,8 @@ func _physics_process(delta: float) -> void:
         if not landed:
           $frog_hop_audio._play_landing(false)
           landed = true
-      
-        velocity.x *= damping_factor
+        if not just_jumped:
+          velocity.x *= damping_factor
         if abs(velocity.x) < 0.1:
           velocity.x = 0
     PlayerState.water:
@@ -129,5 +132,8 @@ func _on_water_detector_area_exited(area):
       velocity = Vector2.ZERO
       breached.emit()
       #print("entering breached - play breaching water sound here")
-      
-    
+
+func just_jumped_delay():
+  await get_tree().create_timer(0.1).timeout
+  just_jumped = false
+  

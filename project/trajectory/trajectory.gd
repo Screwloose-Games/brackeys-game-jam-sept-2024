@@ -2,6 +2,7 @@ extends Line2D
 
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @export var player: PlayerCharacter
+@export var use_on_all_jumps: bool = false
 const MAX_POINTS = 50
 var gravity: float = 980 # need to get this from engine
 var base_jump_velocity = -10.0 # need to get this from player
@@ -34,7 +35,7 @@ func _physics_process(delta):
 
 func _on_update_trajectory(angle: float, speed: float):
   var direction = Vector2(cos(angle), sin(angle))
-  if player_state_breached:
+  if player_state_breached or use_on_all_jumps:
     show_trajectory = true
     trajectory_vel = direction * speed * base_jump_velocity * water_jump_boost
     update_trajectory = true
