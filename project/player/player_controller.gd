@@ -16,7 +16,7 @@ signal state_changed(new_state: PlayerState)
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @onready var water_ref: Node2D = %Water
 
-@onready var audio_control = $"../audio_control"
+@onready var audio_control = AudioControl
 
 var jumping = false
 var current_trail: JumpTrail
