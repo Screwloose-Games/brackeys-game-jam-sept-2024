@@ -65,5 +65,6 @@ stream = ExtResource("4_ekion")
 bus = &"SFX"
 
 [node name="audio_control" parent="." instance=ExtResource("7_54k7g")]
+master_vol = 1.0
 cutoff = 800.0
 resonance = 0.5
