@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqkibnwrcu7j7"]
+[gd_scene load_steps=8 format=3 uid="uid://cqkibnwrcu7j7"]
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
 [ext_resource type="PackedScene" uid="uid://cspieb7a2kwxj" path="res://environment/platforms/platform.tscn" id="2_ynxn1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://environment/weather/weather_sfx.gd" id="3_xfo7u"]
 [ext_resource type="AudioStream" uid="uid://b3lvdph5xa7v" path="res://assets/sound/sfx/weather/heavy_rain.wav" id="4_ekion"]
 [ext_resource type="AudioStream" uid="uid://bsiq4dlk48ei" path="res://assets/sound/sfx/weather/light_rain.wav" id="5_ie0p8"]
+[ext_resource type="PackedScene" uid="uid://bv5vytcygdb42" path="res://world/audio_control.tscn" id="7_54k7g"]
 
 [node name="Level01" type="Node2D"]
 
@@ -57,6 +58,13 @@ transition_speed = 0.5
 
 [node name="light_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("5_ie0p8")
+bus = &"SFX"
 
 [node name="heavy_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("4_ekion")
+bus = &"SFX"
+
+[node name="audio_control" parent="." instance=ExtResource("7_54k7g")]
+master_vol = 1.0
+cutoff = 800.0
+resonance = 0.5

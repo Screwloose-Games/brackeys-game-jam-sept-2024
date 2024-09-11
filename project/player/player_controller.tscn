@@ -66,6 +66,7 @@ texture = ExtResource("4_dd7dj")
 stretch_mode = 5
 
 [node name="frog_hop_audio" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 script = ExtResource("5_ab0d2")
 hop = ExtResource("6_d7pdq")
 landing = ExtResource("7_kisgi")
