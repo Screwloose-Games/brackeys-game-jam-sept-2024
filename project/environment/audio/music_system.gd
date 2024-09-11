@@ -38,8 +38,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-  print("track A vol: " + str(track_a.volume_db))
-  print("track B vol: " + str(track_b.volume_db))
+  #print("track A vol: " + str(track_a.volume_db))
+  #print("track B vol: " + str(track_b.volume_db))
   pass
   
 func _get_volume_normalized(audio_type : audio_bus_type) -> float:
