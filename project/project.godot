@@ -15,6 +15,10 @@ run/main_scene="res://world/level_01.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioControl="*res://world/audio_control.tscn"
+
 [display]
 
 window/size/viewport_width=640

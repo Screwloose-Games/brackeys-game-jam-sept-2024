@@ -10,8 +10,8 @@ master_vol = 1.0
 sfx_vol = 1.0
 music_vol = 1.0
 filter_transition_time = 0.5
-cutoff = 700.0
-resonance = 0.3
+cutoff = 1300.0
+resonance = 0.5
 theme = ExtResource("2_qkarb")
 level_light = ExtResource("3_0eyuh")
 

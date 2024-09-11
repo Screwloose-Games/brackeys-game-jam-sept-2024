@@ -16,6 +16,8 @@ signal state_changed(new_state: PlayerState)
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @onready var water_ref: Node2D = %Water
 
+@onready var audio_control = AudioControl
+
 var jumping = false
 var current_trail: JumpTrail
 var _is_on_floor = false
@@ -59,7 +61,7 @@ func _on_jump(angle: float, power: float):
       velocity.y = v_y
       jumping = true
       #play swim sound here
-      $frog_hop_audio._play_hop()
+      $frog_hop_audio._play_swim()
       
     PlayerState.breached:
       jump_from_breach = true
@@ -119,9 +121,13 @@ func _on_water_detector_area_entered(area:Area2D):
       breached.emit()
       velocity = Vector2.ZERO
       #print("entering breached - play breaching water sound here")
+      $frog_hop_audio._play_emerge()
+      audio_control._toggle_water_effect(false)
   if player_state == PlayerState.land or PlayerState.breached:
     if area.collision_layer == water_layer:
       #print("entered water - play landing in water sound")
+      $frog_hop_audio._play_submerge()
+      audio_control._toggle_water_effect(true)
       jump_from_breach = false
       exit_breached.emit()
       player_state = PlayerState.water
@@ -133,12 +139,14 @@ func _on_water_detector_area_exited(area):
       exit_breached.emit()
       jump_from_breach = false
       #print("on land - play jumping out of water sound")
+      audio_control._toggle_water_effect(false)
   if player_state == PlayerState.water:
     if area.collision_layer == water_layer:
       player_state = PlayerState.breached
       velocity = Vector2.ZERO
       breached.emit()
       #print("entering breached - play breaching water sound here")
+      audio_control._toggle_water_effect(false)
 
 func just_jumped_delay():
   await get_tree().create_timer(0.1).timeout
