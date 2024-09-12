@@ -58,9 +58,10 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
 unique_name_in_owner = true
-position = Vector2(0, -2)
+position = Vector2(0, -5)
 sprite_frames = ExtResource("3_figa6")
-animation = &"jump_rising"
+animation = &"swim_poised"
+offset = Vector2(0, 3)
 script = ExtResource("4_5hect")
 
 [node name="Flipper" type="Node" parent="Flippable"]
@@ -118,6 +119,11 @@ bus = &"SFX"
 script = ExtResource("15_4pvsp")
 min_interval = 1.0
 max_interval = 6.0
+
+[node name="GroundDetector" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 10)
+collision_mask = 2
 
 [connection signal="area_entered" from="WaterDetector" to="." method="_on_water_detector_area_entered"]
 [connection signal="area_exited" from="WaterDetector" to="." method="_on_water_detector_area_exited"]
