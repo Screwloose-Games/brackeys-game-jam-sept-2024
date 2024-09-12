@@ -81,7 +81,6 @@ player_state = 0
 
 [node name="Water" parent="." instance=ExtResource("7_f8se6")]
 unique_name_in_owner = true
-z_index = 3
 water_rate = 0.005
 starting_water_height = 10.0
 

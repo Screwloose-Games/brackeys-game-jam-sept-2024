@@ -16,6 +16,7 @@ shader_parameter/wave_freq = 6.0
 shader_parameter/wave_width = 0.2
 
 [node name="Water" type="Node2D"]
+z_index = 3
 script = ExtResource("1_8wq1e")
 
 [node name="Water" type="Area2D" parent="."]
