@@ -37,6 +37,9 @@ func _ready():
   make_trail()
 
 func _on_jump(angle: float, power: float):
+  var chance = randi_range(0, 100)
+  if (chance > 70):
+    $frog_croak_audio._croak()
   match player_state:
     PlayerState.land:
       if is_on_floor():
