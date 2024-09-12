@@ -33,14 +33,6 @@ func _ready() -> void:
   
   _init_filter()
   _init_music(theme)
-  pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-  #print("track A vol: " + str(track_a.volume_db))
-  #print("track B vol: " + str(track_b.volume_db))
-  pass
   
 func _get_volume_normalized(audio_type : audio_bus_type) -> float:
   match(audio_type):
@@ -75,8 +67,6 @@ func _set_volume(audio_type : audio_bus_type, value : float) -> void:
     audio_bus_type.MUSIC:
       music_vol = value
       AudioServer.set_bus_volume_db(2, linear_to_db(value))
-        
-  pass
   
 # Play starting music - probably the theme
 func _init_music(new_track : AudioStreamMP3) -> void:
@@ -85,14 +75,11 @@ func _init_music(new_track : AudioStreamMP3) -> void:
   track_a.stream = new_track
   track_a.play()
   
-  pass
-  
 func _init_filter() -> void:
   lps_filter = AudioServer.get_bus_effect(0, 0)
   lps_filter.cutoff_hz = 20500
   lps_filter.resonance = 0.5
   lps_filter.db = AudioEffectFilter.FILTER_24DB
-  pass
   
 func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
   var last_track = current_track
@@ -120,7 +107,6 @@ func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
       tween.tween_property(track_b, ":volume_db", linear_to_db(0.0001), transition_time)
     
   current_track = last_track
-  pass
   
 func _toggle_water_effect(is_under_water : bool) -> void:
   if (is_under_water):
@@ -133,4 +119,3 @@ func _toggle_water_effect(is_under_water : bool) -> void:
       var tween = get_tree().create_tween()
       tween.tween_property(lps_filter, ":cutoff_hz", 20500, filter_transition_time)
       tween.tween_property(lps_filter, ":resonance", 0.5, filter_transition_time)
-  pass

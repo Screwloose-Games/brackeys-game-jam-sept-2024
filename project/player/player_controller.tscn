@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=22 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
@@ -24,6 +24,14 @@ size = Vector2(8, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paoka"]
 size = Vector2(9, 5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0hiyl"]
+random_pitch = 1.1
+random_volume_offset_db = 4.0
+streams_count = 3
+stream_0/stream = ExtResource("16_btbpe")
+stream_1/stream = ExtResource("17_crots")
+stream_2/stream = ExtResource("18_8qwn7")
 
 [node name="PlayerController" type="CharacterBody2D" node_paths=PackedStringArray("trail_offset")]
 z_index = 2
@@ -102,13 +110,11 @@ shape = SubResource("RectangleShape2D_paoka")
 player = NodePath("..")
 
 [node name="frog_croak_audio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0hiyl")
 bus = &"SFX"
 script = ExtResource("15_4pvsp")
 min_interval = 1.0
 max_interval = 6.0
-croak_0 = ExtResource("16_btbpe")
-croak_1 = ExtResource("17_crots")
-croak_2 = ExtResource("18_8qwn7")
 
 [connection signal="area_entered" from="WaterDetector" to="." method="_on_water_detector_area_entered"]
 [connection signal="area_exited" from="WaterDetector" to="." method="_on_water_detector_area_exited"]

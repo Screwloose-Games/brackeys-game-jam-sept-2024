@@ -80,8 +80,7 @@ func _on_jump(angle: float, power: float):
 
       var v_y = direction.y * power * base_jump_velocity * water_breach_jump_boost
       velocity.y = v_y
-      jumping = true
-      
+      jumping = true  
         
 func _physics_process(delta: float) -> void:
   match player_state:
@@ -115,12 +114,10 @@ func _physics_process(delta: float) -> void:
 func make_trail():
   if current_trail:
     current_trail.stop()
+    
   current_trail = JumpTrail.create()
   add_child(current_trail)
   current_trail.position = trail_offset.position
-
-  
-
 
 func _on_water_detector_area_entered(area:Area2D):
   if player_state == PlayerState.water:
