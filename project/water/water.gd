@@ -5,6 +5,7 @@ extends Node2D
 @export var starting_water_height: float = 100
 @export var max_water_height: float = 1000
 @export var current_water_height: float
+@onready var water_area: Area2D = $Water
 @onready var collision_shape_2d: CollisionShape2D = $Water/CollisionShape2D
 @onready var surface_collider = $SurfaceWater
 @onready var water_visual_effect = $WaterVisualEffect
