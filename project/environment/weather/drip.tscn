@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhyhg2rf10p2w"]
+
+[ext_resource type="Texture2D" uid="uid://dkpjo8sooj1au" path="res://assets/art/fx/drip.png" id="1_jfnij"]
+[ext_resource type="PackedScene" uid="uid://ckf7djcn0ijas" path="res://environment/audio/drip_audio.tscn" id="2_tjqq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrfge"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(0, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwwcq"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(8, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhbma"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(16, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wdu5"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(24, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k8q8"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(32, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siiwd"]
+atlas = ExtResource("1_jfnij")
+region = Rect2(40, 0, 8, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jmw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrfge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwwcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhbma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wdu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k8q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siiwd")
+}],
+"loop": true,
+"name": &"drip_animation",
+"speed": 5.0
+}]
+
+[node name="drip" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1jmw2")
+animation = &"drip_animation"
+autoplay = "drip_animation"
+frame_progress = 0.725947
+
+[node name="drip_audio" parent="." instance=ExtResource("2_tjqq8")]
+volume_db = -4.0
+pitch_scale = 1.25
+max_distance = 200.0
+bus = &"SFX"
+min_interval = 1.0
+max_interval = 10.0
