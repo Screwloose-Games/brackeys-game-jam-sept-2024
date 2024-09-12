@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://cmocf8u7kwf0q"]
+[gd_scene load_steps=6 format=3 uid="uid://cmocf8u7kwf0q"]
+
+[ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="1_4g7o8"]
+[ext_resource type="Theme" uid="uid://f1q4ddav84mp" path="res://ui/global_theme.tres" id="2_loao3"]
+[ext_resource type="Texture2D" uid="uid://dokkn4g4tilp8" path="res://assets/art/ui/start_game_button_static.png" id="2_n2oni"]
+[ext_resource type="Texture2D" uid="uid://bue7xb5ieuurf" path="res://assets/art/ui/start_game_button_pressed.png" id="3_7yhor"]
+[ext_resource type="Texture2D" uid="uid://bnrdub6rky7il" path="res://assets/art/ui/start_game_button_hover.png" id="4_7cukr"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -10,17 +16,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="menu_bg" type="TextureRect" parent="Control"]
+texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -15.5
-offset_right = 20.5
-offset_bottom = 15.5
+offset_left = -622.5
+offset_top = -511.5
+offset_right = 622.5
+offset_bottom = 511.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Play"
+texture = ExtResource("1_4g7o8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="start_button" type="TextureButton" parent="Control/menu_bg"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = -56.5
+offset_right = 263.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(263, 132.5)
+theme = ExtResource("2_loao3")
+action_mode = 0
+texture_normal = ExtResource("2_n2oni")
+texture_pressed = ExtResource("3_7yhor")
+texture_hover = ExtResource("4_7cukr")
+ignore_texture_size = true
+stretch_mode = 3
