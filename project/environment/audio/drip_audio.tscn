@@ -1,0 +1,24 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckf7djcn0ijas"]
+
+[ext_resource type="AudioStream" uid="uid://bn67sbv7a1f13" path="res://assets/sound/sfx/environment/drip_0.wav" id="1_u7mht"]
+[ext_resource type="AudioStream" uid="uid://c6h0ur0r501y6" path="res://assets/sound/sfx/environment/drip_1.wav" id="2_r7c8r"]
+[ext_resource type="AudioStream" uid="uid://b41yhw74nl44r" path="res://assets/sound/sfx/environment/drip_2.wav" id="3_grqt6"]
+[ext_resource type="AudioStream" uid="uid://cjhr2og8m14o" path="res://assets/sound/sfx/environment/drip_3.wav" id="4_3yump"]
+[ext_resource type="AudioStream" uid="uid://c1uaiw5d21lg6" path="res://assets/sound/sfx/environment/drip_4.wav" id="5_uiguo"]
+[ext_resource type="AudioStream" uid="uid://bag32foomuudq" path="res://assets/sound/sfx/environment/drip_5.wav" id="6_ffc0h"]
+[ext_resource type="Script" path="res://environment/audio/drip_audio.gd" id="7_e7m6b"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mns55"]
+random_pitch = 1.1
+random_volume_offset_db = 8.0
+streams_count = 6
+stream_0/stream = ExtResource("1_u7mht")
+stream_1/stream = ExtResource("2_r7c8r")
+stream_2/stream = ExtResource("3_grqt6")
+stream_3/stream = ExtResource("4_3yump")
+stream_4/stream = ExtResource("5_uiguo")
+stream_5/stream = ExtResource("6_ffc0h")
+
+[node name="drip_audio" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_mns55")
+script = ExtResource("7_e7m6b")
