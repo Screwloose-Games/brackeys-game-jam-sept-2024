@@ -68,7 +68,7 @@ flip_h = true
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(2, 2)
 script = ExtResource("6_xyae8")
-lerp_speed = 100.0
+lerp_speed = 10.0
 min_y = -10000.0
 max_y = -90.0
 target = NodePath("../PlayerController")
