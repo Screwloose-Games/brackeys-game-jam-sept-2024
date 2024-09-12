@@ -12,6 +12,7 @@ signal state_changed(new_state: PlayerState)
 @export var breach_position_surface_offset = 3 
 @export var water_breach_jump_boost = 2
 @export var trail_offset: Node2D
+@export var apex_velocity_max: float = 1.0
 
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @onready var water_ref: Node2D = %Water
@@ -83,6 +84,7 @@ func _on_jump(angle: float, power: float):
       jumping = true  
         
 func _physics_process(delta: float) -> void:
+    
   match player_state:
     PlayerState.land:
       if not is_on_floor():
