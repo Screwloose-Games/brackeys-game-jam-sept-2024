@@ -15,9 +15,9 @@ stream_2/stream = ExtResource("5_x73f8")
 
 [node name="ui_audio" type="Node"]
 script = ExtResource("1_afbp0")
-hover_sound = ExtResource("2_31rwr")
 
 [node name="hover_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_31rwr")
 bus = &"SFX"
 
 [node name="confirm_audio" type="AudioStreamPlayer" parent="."]
