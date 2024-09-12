@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://cqkibnwrcu7j7"]
+[gd_scene load_steps=17 format=4 uid="uid://cqkibnwrcu7j7"]
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="1_qrpsp"]
-[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="2_o833c"]
+[ext_resource type="PackedScene" uid="uid://cxrdoo0k1vvdv" path="res://environment/platforms/level_tile_map.tscn" id="2_o833c"]
 [ext_resource type="TileSet" uid="uid://digwd7rbe2n4o" path="res://environment/platforms/platform_tile_set.tres" id="3_0b0tc"]
 [ext_resource type="PackedScene" uid="uid://c6walfh0cseu5" path="res://water/water.tscn" id="3_tatpc"]
 [ext_resource type="Script" path="res://environment/weather/weather_sfx.gd" id="3_xfo7u"]
@@ -11,6 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://xe6da44hjqe5" path="res://assets/art/brick_edge.png" id="5_bq3ss"]
 [ext_resource type="AudioStream" uid="uid://bsiq4dlk48ei" path="res://assets/sound/sfx/weather/light_rain.wav" id="5_ie0p8"]
 [ext_resource type="Script" path="res://camera/follow_camera_2d.gd" id="6_xyae8"]
+[ext_resource type="Script" path="res://ui/level_overlay/level_over_overlay.gd" id="12_owhkd"]
+[ext_resource type="Script" path="res://ui/level_overlay/timer_label.gd" id="12_swqf6"]
+[ext_resource type="PackedScene" uid="uid://141x62251268" path="res://player/finish_area.tscn" id="13_6fs5v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yyf4u"]
+font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_231lq"]
+size = Vector2(97, 35)
 
 [node name="Level01" type="Node2D"]
 
@@ -75,6 +84,7 @@ target = NodePath("../PlayerController")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_dyd3k")]
 position = Vector2(0, -17)
+collision_layer = 257
 water_breach_jump_boost = 1
 
 [node name="Water" parent="." instance=ExtResource("3_tatpc")]
@@ -93,3 +103,79 @@ bus = &"SFX"
 [node name="heavy_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("4_ekion")
 bus = &"SFX"
+
+[node name="LevelOverOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("finish_area")]
+script = ExtResource("12_owhkd")
+finish_area = NodePath("../FinishArea")
+
+[node name="Control" type="Control" parent="LevelOverOverlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelOverOverlay/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -38.5
+offset_right = 39.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="LevelOverOverlay/Control/VBoxContainer"]
+layout_mode = 2
+text = "You Won!"
+label_settings = SubResource("LabelSettings_yyf4u")
+
+[node name="YourTimeLabel" type="Label" parent="LevelOverOverlay/Control/VBoxContainer"]
+layout_mode = 2
+text = "Your Time"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="LevelOverOverlay/Control/VBoxContainer" node_paths=PackedStringArray("finish_area")]
+layout_mode = 2
+text = "0:00"
+horizontal_alignment = 1
+script = ExtResource("12_swqf6")
+finish_area = NodePath("../../../../FinishArea")
+
+[node name="LevelOverlay" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="LevelOverlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelOverlay/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+
+[node name="TimerLabel" type="Label" parent="LevelOverlay/Control/MarginContainer" node_paths=PackedStringArray("finish_area")]
+layout_mode = 2
+text = "0:00"
+script = ExtResource("12_swqf6")
+finish_area = NodePath("../../../../FinishArea")
+
+[node name="FinishArea" parent="." instance=ExtResource("13_6fs5v")]
+position = Vector2(-123, -139)
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
+position = Vector2(38.5, -12.5)
+shape = SubResource("RectangleShape2D_231lq")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://141x62251268"]
+
+[ext_resource type="Script" path="res://player/finish_area.gd" id="1_0s0ef"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_0s0ef")
