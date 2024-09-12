@@ -6,7 +6,7 @@ signal exit_breached()
 signal landed()
 signal state_changed(new_state: PlayerState)
 
-@export  var base_jump_velocity = -10.0
+@export var base_jump_velocity = -10.0
 @export var damping_factor = 0.6
 @export var water_damping_factor = 0.8
 @export var breach_position_surface_offset = 3 
