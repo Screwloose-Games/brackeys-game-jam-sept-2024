@@ -37,12 +37,13 @@ func _ready():
   make_trail()
 
 func _on_jump(angle: float, power: float):
-  var chance = randi_range(0, 100)
-  if (chance > 70):
-    $frog_croak_audio._croak()
   match player_state:
     PlayerState.land:
       if is_on_floor():
+        var chance = randi_range(0, 100)
+        if (chance > 70):
+          $frog_croak_audio._croak()
+          
         just_jumped = true
         just_jumped_delay()
         var direction = Vector2(cos(angle), sin(angle))
@@ -55,6 +56,10 @@ func _on_jump(angle: float, power: float):
         jumping = true
         $frog_hop_audio._play_hop()
     PlayerState.water:
+      var chance = randi_range(0, 100)
+      if (chance > 70):
+        $frog_croak_audio._croak()
+        
       var direction = Vector2(cos(angle), sin(angle))
       
       var v_x = direction.x * power * base_jump_velocity
