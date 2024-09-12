@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cqkibnwrcu7j7"]
+[gd_scene load_steps=24 format=4 uid="uid://cqkibnwrcu7j7"]
 
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="1_dyd3k"]
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_ke4tm"]
@@ -212,7 +212,7 @@ collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
-position = Vector2(38.5, -12.5)
+position = Vector2(185, -281)
 shape = SubResource("RectangleShape2D_231lq")
 
 [node name="DebugUILayer" type="CanvasLayer" parent="."]
