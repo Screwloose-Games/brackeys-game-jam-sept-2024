@@ -1,12 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmocf8u7kwf0q"]
 
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="1_4g7o8"]
-[ext_resource type="Theme" uid="uid://f1q4ddav84mp" path="res://ui/global_theme.tres" id="2_loao3"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_k20qx"]
 [ext_resource type="Texture2D" uid="uid://dokkn4g4tilp8" path="res://assets/art/ui/start_game_button_static.png" id="2_n2oni"]
-[ext_resource type="Texture2D" uid="uid://bue7xb5ieuurf" path="res://assets/art/ui/start_game_button_pressed.png" id="3_7yhor"]
+[ext_resource type="Texture2D" uid="uid://bchwowpjl1h8i" path="res://assets/art/ui/start_game_button_pressed.png" id="3_7yhor"]
 [ext_resource type="Texture2D" uid="uid://bnrdub6rky7il" path="res://assets/art/ui/start_game_button_hover.png" id="4_7cukr"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_k20qx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -49,10 +50,11 @@ offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(263, 132.5)
-theme = ExtResource("2_loao3")
 action_mode = 0
 texture_normal = ExtResource("2_n2oni")
 texture_pressed = ExtResource("3_7yhor")
 texture_hover = ExtResource("4_7cukr")
 ignore_texture_size = true
 stretch_mode = 3
+
+[connection signal="pressed" from="Control/menu_bg/start_button" to="." method="_on_start_button_pressed"]
