@@ -151,4 +151,6 @@ func _on_water_detector_area_exited(area):
 func just_jumped_delay():
   await get_tree().create_timer(0.1).timeout
   just_jumped = false
+  if is_on_floor():
+    landed.emit()
   
