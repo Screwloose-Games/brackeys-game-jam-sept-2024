@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://5e005b582wsj"]
+
+[ext_resource type="Script" path="res://environment/audio/ui_audio.gd" id="1_afbp0"]
+[ext_resource type="AudioStream" uid="uid://bbl1jn6dxjv2v" path="res://assets/sound/sfx/ui/ui_hover.wav" id="2_31rwr"]
+[ext_resource type="AudioStream" uid="uid://bppcqdv50ik51" path="res://assets/sound/sfx/frog/frog_croak_0.wav" id="3_uoqd1"]
+[ext_resource type="AudioStream" uid="uid://b81rwmi15u7j" path="res://assets/sound/sfx/frog/frog_croak_1.wav" id="4_sb25u"]
+[ext_resource type="AudioStream" uid="uid://dwm3by5yp5bfv" path="res://assets/sound/sfx/frog/frog_croak_2.wav" id="5_x73f8"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pnjrr"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("3_uoqd1")
+stream_1/stream = ExtResource("4_sb25u")
+stream_2/stream = ExtResource("5_x73f8")
+
+[node name="ui_audio" type="Node"]
+script = ExtResource("1_afbp0")
+
+[node name="hover_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_31rwr")
+bus = &"SFX"
+
+[node name="confirm_audio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_pnjrr")
+bus = &"SFX"

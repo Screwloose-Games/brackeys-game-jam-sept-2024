@@ -40,6 +40,10 @@ func _on_jump(angle: float, power: float):
   match player_state:
     PlayerState.land:
       if is_on_floor():
+        var chance = randi_range(0, 100)
+        if (chance > 70):
+          $frog_croak_audio._croak()
+          
         just_jumped = true
         just_jumped_delay()
         var direction = Vector2(cos(angle), sin(angle))
@@ -52,6 +56,10 @@ func _on_jump(angle: float, power: float):
         jumping = true
         $frog_hop_audio._play_hop()
     PlayerState.water:
+      var chance = randi_range(0, 100)
+      if (chance > 70):
+        $frog_croak_audio._croak()
+        
       var direction = Vector2(cos(angle), sin(angle))
       
       var v_x = direction.x * power * base_jump_velocity
@@ -72,8 +80,7 @@ func _on_jump(angle: float, power: float):
 
       var v_y = direction.y * power * base_jump_velocity * water_breach_jump_boost
       velocity.y = v_y
-      jumping = true
-      
+      jumping = true  
         
 func _physics_process(delta: float) -> void:
   match player_state:
@@ -107,12 +114,10 @@ func _physics_process(delta: float) -> void:
 func make_trail():
   if current_trail:
     current_trail.stop()
+    
   current_trail = JumpTrail.create()
   add_child(current_trail)
   current_trail.position = trail_offset.position
-
-  
-
 
 func _on_water_detector_area_entered(area:Area2D):
   if player_state == PlayerState.water:

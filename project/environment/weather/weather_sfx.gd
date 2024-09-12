@@ -13,8 +13,6 @@ var start_transition : bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
   _play_rain()
-  pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,7 +31,6 @@ func _process(delta: float) -> void:
         transition -= delta * transition_speed
       else:
         start_transition = false
-  pass
 
 func _play_rain() -> void:
   if (light_rain.stream):
@@ -46,10 +43,8 @@ func _play_rain() -> void:
     
   start_transition = false
   transition = 0.0
-  pass
   
 func _change_rain(is_heavy: bool) -> void:
   if (is_heavy != play_heavy_rain):
     play_heavy_rain = is_heavy
     start_transition = true
-  pass
