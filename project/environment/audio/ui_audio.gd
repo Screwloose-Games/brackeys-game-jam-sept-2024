@@ -5,8 +5,6 @@ extends Node
 @onready var hover = $hover_audio
 @onready var confirm = $confirm_audio
 
-var croaks
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
   hover.stream = hover_sound
