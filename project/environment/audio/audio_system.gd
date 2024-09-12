@@ -24,6 +24,8 @@ var current_track = track_type.TRACK_A
 #filter
 var lps_filter : AudioEffectFilter
 
+var init_music : bool
+
 # Called when the node enters the scene tree for the first time.
 # init bus volumes and effects and play theme music
 func _ready() -> void:
@@ -32,7 +34,6 @@ func _ready() -> void:
   _set_volume(audio_bus_type.MUSIC, music_vol)
   
   _init_filter()
-  _init_music(theme)
   
 func _get_volume_normalized(audio_type : audio_bus_type) -> float:
   match(audio_type):
@@ -74,6 +75,7 @@ func _init_music(new_track : AudioStreamMP3) -> void:
   track_a.volume_db = 0.0
   track_a.stream = new_track
   track_a.play()
+  init_music = true
   
 func _init_filter() -> void:
   lps_filter = AudioServer.get_bus_effect(0, 0)

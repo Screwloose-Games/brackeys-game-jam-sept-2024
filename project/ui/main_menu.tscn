@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmocf8u7kwf0q"]
+[gd_scene load_steps=7 format=3 uid="uid://cmocf8u7kwf0q"]
 
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="1_4g7o8"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_k20qx"]
 [ext_resource type="Texture2D" uid="uid://dokkn4g4tilp8" path="res://assets/art/ui/start_game_button_static.png" id="2_n2oni"]
 [ext_resource type="Texture2D" uid="uid://bchwowpjl1h8i" path="res://assets/art/ui/start_game_button_pressed.png" id="3_7yhor"]
 [ext_resource type="Texture2D" uid="uid://bnrdub6rky7il" path="res://assets/art/ui/start_game_button_hover.png" id="4_7cukr"]
+[ext_resource type="PackedScene" uid="uid://5e005b582wsj" path="res://world/ui_audio.tscn" id="6_ut412"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_k20qx")
@@ -57,4 +58,7 @@ texture_hover = ExtResource("4_7cukr")
 ignore_texture_size = true
 stretch_mode = 3
 
+[node name="ui_audio" parent="." instance=ExtResource("6_ut412")]
+
+[connection signal="mouse_entered" from="Control/menu_bg/start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="Control/menu_bg/start_button" to="." method="_on_start_button_pressed"]
