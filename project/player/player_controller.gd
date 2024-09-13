@@ -122,6 +122,7 @@ func make_trail():
   current_trail.position = trail_offset.position
 
 func _on_water_detector_area_entered(area:Area2D):
+  print("water detector enter")
   if player_state == PlayerState.water:
     if area.collision_layer == breach_layer:
       player_state = PlayerState.breached
@@ -140,6 +141,7 @@ func _on_water_detector_area_entered(area:Area2D):
       player_state = PlayerState.water
   
 func _on_water_detector_area_exited(area):
+  print("water detector exit")
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer:
       player_state = PlayerState.land

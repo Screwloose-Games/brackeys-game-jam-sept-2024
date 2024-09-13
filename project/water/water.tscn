@@ -11,7 +11,7 @@ size = Vector2(1035, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2c3p1"]
 shader = ExtResource("2_kmwwx")
-shader_parameter/wave_speed = 2.0
+shader_parameter/wave_speed = 1.0
 shader_parameter/wave_freq = 6.0
 shader_parameter/wave_width = 0.2
 
