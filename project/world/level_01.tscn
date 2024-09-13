@@ -123,11 +123,11 @@ transition_speed = 0.5
 
 [node name="light_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("5_ie0p8")
-bus = &"SFX"
+bus = &"Weather"
 
 [node name="heavy_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("4_ekion")
-bus = &"SFX"
+bus = &"Weather"
 
 [node name="LevelOverOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("finish_area")]
 script = ExtResource("12_owhkd")
