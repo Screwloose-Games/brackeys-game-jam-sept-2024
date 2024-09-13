@@ -79,6 +79,7 @@ offset_top = -17.0
 offset_bottom = -17.0
 pivot_offset = Vector2(0, 17)
 script = ExtResource("3_q38sm")
+max_mouse_dist = 50.0
 big_jump = 35.0
 
 [node name="TextureRect" type="TextureRect" parent="JumpArrow"]
