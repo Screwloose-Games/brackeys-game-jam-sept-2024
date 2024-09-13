@@ -45,9 +45,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -263.0
-offset_top = -56.5
+offset_top = -141.0
 offset_right = 263.0
-offset_bottom = 56.5
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(263, 132.5)
@@ -58,7 +58,78 @@ texture_hover = ExtResource("4_7cukr")
 ignore_texture_size = true
 stretch_mode = 3
 
+[node name="options_button" type="TextureButton" parent="Control/menu_bg"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = 45.0
+offset_right = 263.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(263, 132.5)
+action_mode = 0
+texture_normal = ExtResource("2_n2oni")
+texture_pressed = ExtResource("3_7yhor")
+texture_hover = ExtResource("4_7cukr")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="option_back_button" type="TextureButton" parent="Control/menu_bg"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -165.0
+offset_right = 255.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(263, 132.5)
+action_mode = 0
+texture_normal = ExtResource("2_n2oni")
+texture_pressed = ExtResource("3_7yhor")
+texture_hover = ExtResource("4_7cukr")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="master_vol_text" type="RichTextLabel" parent="Control/menu_bg"]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 485.0
+offset_right = 788.0
+offset_bottom = 509.0
+text = "MASTER VOLUME
+"
+
+[node name="master_vol_slider" type="HSlider" parent="Control/menu_bg"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 512.0
+offset_right = 822.0
+offset_bottom = 528.0
+max_value = 1.0
+step = 0.1
+value = 0.5
+scrollable = false
+
 [node name="ui_audio" parent="." instance=ExtResource("6_ut412")]
 
 [connection signal="mouse_entered" from="Control/menu_bg/start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="Control/menu_bg/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Control/menu_bg/options_button" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="Control/menu_bg/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="Control/menu_bg/option_back_button" to="." method="_on_option_back_button_mouse_entered"]
+[connection signal="pressed" from="Control/menu_bg/option_back_button" to="." method="_on_option_back_button_pressed"]
+[connection signal="drag_started" from="Control/menu_bg/master_vol_slider" to="." method="_on_master_vol_slider_drag_started"]
+[connection signal="mouse_entered" from="Control/menu_bg/master_vol_slider" to="." method="_on_master_vol_slider_mouse_entered"]
+[connection signal="value_changed" from="Control/menu_bg/master_vol_slider" to="." method="_on_master_vol_slider_value_changed"]
