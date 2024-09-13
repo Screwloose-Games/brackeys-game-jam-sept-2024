@@ -8,7 +8,7 @@
 script = ExtResource("1_t2pgc")
 master_vol = 1.0
 sfx_vol = 1.0
-music_vol = 1.0
+music_vol = 0.84
 filter_transition_time = 0.5
 cutoff = 1300.0
 resonance = 0.5
