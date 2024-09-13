@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmocf8u7kwf0q"]
+[gd_scene load_steps=16 format=3 uid="uid://cmocf8u7kwf0q"]
 
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="1_4g7o8"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_k20qx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://00e7km3f5xyy" path="res://assets/art/ui/buttons and sliders/options_hover.png" id="8_qs82i"]
 [ext_resource type="Texture2D" uid="uid://y1hla6gcs6x1" path="res://assets/art/ui/buttons and sliders/back_static_small.png" id="9_0u27j"]
 [ext_resource type="Texture2D" uid="uid://bcj6r0t64kjft" path="res://assets/art/ui/buttons and sliders/back_pressed_small.png" id="10_ebac5"]
+[ext_resource type="FontFile" uid="uid://unrp27fvoifr" path="res://assets/art/ui/fonts/Winkle-Regular.otf" id="11_g5yvf"]
 [ext_resource type="Texture2D" uid="uid://n4pui5m5tdmi" path="res://assets/art/ui/buttons and sliders/slider_base.png" id="12_2t7dq"]
 [ext_resource type="Texture2D" uid="uid://5sf1wrxk6svr" path="res://assets/art/ui/buttons and sliders/slider_handle.png" id="13_kef5u"]
 
@@ -52,6 +53,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="start_button" type="TextureButton" parent="Control/menu_bg"]
+visible = false
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -74,6 +76,7 @@ ignore_texture_size = true
 stretch_mode = 3
 
 [node name="options_button" type="TextureButton" parent="Control/menu_bg"]
+visible = false
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -118,12 +121,13 @@ ignore_texture_size = true
 stretch_mode = 3
 
 [node name="master_vol_text" type="RichTextLabel" parent="Control/menu_bg"]
-visible = false
 layout_mode = 0
-offset_left = 557.0
-offset_top = 485.0
-offset_right = 788.0
-offset_bottom = 509.0
+offset_left = 432.5
+offset_top = 429.5
+offset_right = 822.5
+offset_bottom = 474.5
+theme_override_fonts/normal_font = ExtResource("11_g5yvf")
+theme_override_font_sizes/normal_font_size = 61
 text = "MASTER VOLUME
 "
 
