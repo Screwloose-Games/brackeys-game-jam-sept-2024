@@ -33,7 +33,7 @@ position = Vector2(0, -2.75)
 shape = SubResource("RectangleShape2D_rkau6")
 debug_color = Color(0.849498, 0.000904281, 0.901185, 0.42)
 
-[node name="WaterVisualEffect" type="ColorRect" parent="."]
+[node name="WaterShader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_2c3p1")
 anchors_preset = 5
 anchor_left = 0.5
@@ -45,9 +45,8 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="WaterVisualEffect" type="ColorRect" parent="WaterVisualEffect"]
+[node name="WaterColor" type="ColorRect" parent="."]
 show_behind_parent = true
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -57,4 +56,3 @@ offset_bottom = 6271.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-color = Color(0, 0.639216, 1, 0.192157)
