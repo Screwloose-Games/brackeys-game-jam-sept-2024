@@ -6,6 +6,7 @@ extends Node2D
 @export var max_water_height: float = 1000
 @export var current_water_height: float
 @export var water_rise_delay: float = 60
+@export var visual_x_offset = 129
 var is_rising: bool = false
 @onready var water_area: Area2D = $Water
 @onready var collision_shape_2d: CollisionShape2D = $Water/CollisionShape2D
@@ -39,4 +40,4 @@ func set_water_visual_effect_size(target_height):
     var collision_shape_top = collision_shape_2d.global_position.y - (collision_shape_2d.shape.extents.y) - surface.shape.size.y / 2
     water_visual_effect.size = collision_shape_2d.shape.size
     water_visual_effect.global_position.y = collision_shape_top
-    water_visual_effect.global_position.x = collision_shape_2d.global_position.x
+    water_visual_effect.global_position.x = collision_shape_2d.global_position.x-visual_x_offset
