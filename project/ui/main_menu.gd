@@ -34,13 +34,6 @@ func _on_start_button_mouse_entered() -> void:
 
 func _on_options_button_pressed() -> void:
     ui_audio._confirm()
-    start_button.hide()
-    options_button.hide()
-    is_option_menu_open = false
-    
-    master_vol_slider.show()
-    master_vol_text.show()
-    back_options_button.show()
 
 func _on_options_button_mouse_entered() -> void:
   ui_audio._hover()
@@ -64,6 +57,18 @@ func _on_option_back_button_mouse_entered() -> void:
 
 func _on_option_back_button_pressed() -> void:
   ui_audio._confirm()
+
+func _on_options_button_button_up() -> void:
+  start_button.hide()
+  options_button.hide()
+  is_option_menu_open = false
+    
+  master_vol_slider.show()
+  master_vol_text.show()
+  back_options_button.show()
+
+
+func _on_option_back_button_button_up() -> void:
   master_vol_slider.hide()
   master_vol_text.hide()
   back_options_button.hide()
