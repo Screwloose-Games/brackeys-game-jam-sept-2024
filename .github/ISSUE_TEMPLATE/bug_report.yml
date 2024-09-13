@@ -2,9 +2,7 @@ name: Bug Report
 description: File a bug report.
 title: "[Bug]: "
 labels: ["bug"]
-projects: ["loteque/6"]
-assignees:
-  - loteque
+projects: []
 body:
   - type: markdown
     attributes:
