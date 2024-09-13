@@ -26,7 +26,7 @@ var jump_from_breach: bool = false
 var water_layer: int = 4
 var breach_layer: int = 8
 var just_jumped = false
-@export var player_state: PlayerState = PlayerState.water:
+@export var player_state: PlayerState = PlayerState.land:
   set(val):
     if val != player_state:
       state_changed.emit(val)
