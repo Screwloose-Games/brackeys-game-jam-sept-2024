@@ -7,6 +7,8 @@ signal jump_preview(angle: float, power: float)
 @export var max_mouse_dist: float = 20
 @export var big_jump: float = 30
 @export var small_jump: float = 15
+@export var big_arrow: float = 0.5
+@export var small_arrow: float = 0.25
 @onready var arrow_rotation_pivot: Marker2D = %ArrowRotationPivot
 @onready var texture_rect: TextureRect = $TextureRect
 
@@ -45,7 +47,7 @@ func _process(delta: float) -> void:
         mouse_dist = direction.length()
         var angle = direction.angle() + 1.5 * PI
         var power = mouse_dist_to_power(mouse_dist)
-        texture_rect.scale = power * Vector2(1, 1) / big_jump
+        texture_rect.scale = Vector2(1,1)*mouse_dist_to_arrow_size(mouse_dist)
         rotation = angle
         jump_preview.emit(rotation - 1.5 * PI,power)
 
@@ -55,3 +57,9 @@ func mouse_dist_to_power(dist:float) -> float:
     return big_jump
   else:
     return small_jump
+    
+func mouse_dist_to_arrow_size(dist:float) -> float:
+  if dist >= max_mouse_dist/2:
+    return big_arrow
+  else:
+    return small_arrow
