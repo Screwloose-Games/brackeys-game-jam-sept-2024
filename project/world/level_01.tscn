@@ -124,6 +124,15 @@ position = Vector2(-116, -67)
 collision_layer = 257
 water_breach_jump_boost = 1
 
+[node name="CanvasGroup" type="CanvasGroup" parent="." groups=["WaterGroup"]]
+self_modulate = Color(0, 0.580392, 0.580392, 0.258824)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
+offset_left = -257.0
+offset_top = -5.0
+offset_right = 243.0
+offset_bottom = 95.0
+
 [node name="Water" parent="." instance=ExtResource("3_tatpc")]
 unique_name_in_owner = true
 water_rate = 0.005
