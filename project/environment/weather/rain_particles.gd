@@ -1,3 +1,5 @@
+class_name WeatherController
+
 extends GPUParticles2D
 
 @export var follow_target: Node2D
@@ -6,15 +8,54 @@ extends GPUParticles2D
   set(val):
     rain = float(val)
     start_weather(rain, wind)
+    weather_updated.emit(rain, wind)
+    
 @export_range(-1.0, 1.0) var wind: float = 0.0:
   set(val):
     wind = float(val)
     start_weather(rain, wind)
+    weather_updated.emit(rain, wind)
+
+signal weather_updated(rain: float, wind: float)
+
+func set_weather(init_rain: float, init_wind: float):
+  rain = init_rain
+  wind = init_wind
+
+var weather_condition: WeatherCondition = WeatherCondition.GENTLE
+
+enum WeatherCondition {
+  HEAVY_LEFT,
+  HEAVY_RIGHT,
+  GENTLE,
+  WARNING_LEFT,
+  WARNING_RIGHT
+}
+
+# Heavy rain start
+# wind start left. 10 sec.
+
+# 10 sec heavy rain
+# 10 sec wind
+
+# reduce rain (die down)
+# reduce wind 
+
+# mild rain, wind (0.25, 0.25)
+# 5 sec heavy wind, rain LEFT (1.0, -1.0)
+# Heavy rain start
+# wind start left. 10 sec.
+# Calm for 45 sec (0, 0)
+# tween to mild over 5 seconds (0.25, 0.25)
+# wait 10 seconds
+# tween to strong over 3 seconds ()
+# 5 sec strong LEFT (1.0, -1.0)
 
 @onready var weather_sfx: Node = %weather_sfx
 
 func start_weather(rain_amount: float, wind_amount: float):
-    var rain_intensity = lerp(200, 600, rain_amount)
+    #var rain_intensity = lerp(200, 600, rain_amount)
+    var rain_intensity = 600
     var rain_velocity_min = lerp(1200, 800, rain_amount)
     var rain_velocity_max = lerp(2000, 4000, rain_amount)
     var rain_direction_x = lerpf(-1, 1, (wind_amount + 1) * 0.5)

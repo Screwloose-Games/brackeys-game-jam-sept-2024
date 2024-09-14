@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b06cym37qn4aj"]
+[gd_scene load_steps=6 format=3 uid="uid://b06cym37qn4aj"]
 
 [ext_resource type="Shader" path="res://test/pixel_rain.gdshader" id="1_dnlrr"]
 [ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="2_p1tvr"]
@@ -9,13 +9,10 @@ shader_parameter/angle = 45.0
 shader_parameter/count = 100
 shader_parameter/length = 10.0
 
-[sub_resource type="CameraTexture" id="CameraTexture_2ey4r"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0klb4"]
 shader = ExtResource("2_p1tvr")
 shader_parameter/frequency = 0.0
 shader_parameter/size = 0.015
-shader_parameter/iChannel0 = SubResource("CameraTexture_2ey4r")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_co13u"]
 particle_flag_disable_z = true
