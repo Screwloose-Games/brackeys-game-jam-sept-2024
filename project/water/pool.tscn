@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://water/pool.gd" id="1_qu2pr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kny08"]
-size = Vector2(26, 16)
+size = Vector2(34, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swe1i"]
-size = Vector2(26, 8)
+size = Vector2(34, 8)
 
 [node name="Pool" type="Node2D"]
 script = ExtResource("1_qu2pr")
@@ -16,14 +16,16 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pool"]
+position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_kny08")
 
-[node name="SurfaceWater" type="Area2D" parent="."]
+[node name="SurfaceWaterPool" type="Area2D" parent="."]
 position = Vector2(0, -12)
 collision_layer = 16
 collision_mask = 0
 
-[node name="Surface" type="CollisionShape2D" parent="SurfaceWater"]
+[node name="Surface" type="CollisionShape2D" parent="SurfaceWaterPool"]
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_swe1i")
 debug_color = Color(0.849498, 0.000904281, 0.901185, 0.42)
 
@@ -34,9 +36,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -13.0
 offset_top = -16.0
-offset_right = 13.0
-offset_bottom = 8.0
+offset_right = 21.0
+offset_bottom = 15.0
 grow_horizontal = 2
+scale = Vector2(1.00199, 1.03031)
 size_flags_horizontal = 3
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
