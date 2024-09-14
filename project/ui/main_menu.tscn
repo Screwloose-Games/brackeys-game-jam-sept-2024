@@ -1,11 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmocf8u7kwf0q"]
+[gd_scene load_steps=16 format=3 uid="uid://cmocf8u7kwf0q"]
 
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="1_4g7o8"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_k20qx"]
-[ext_resource type="Texture2D" uid="uid://dokkn4g4tilp8" path="res://assets/art/ui/start_game_button_static.png" id="2_n2oni"]
-[ext_resource type="Texture2D" uid="uid://bchwowpjl1h8i" path="res://assets/art/ui/start_game_button_pressed.png" id="3_7yhor"]
-[ext_resource type="Texture2D" uid="uid://bnrdub6rky7il" path="res://assets/art/ui/start_game_button_hover.png" id="4_7cukr"]
+[ext_resource type="Texture2D" uid="uid://dllg7atqt3xsr" path="res://assets/art/ui/buttons and sliders/startgame_static.png" id="3_g6l6x"]
+[ext_resource type="Texture2D" uid="uid://do0dvs0vvb34l" path="res://assets/art/ui/buttons and sliders/startgame_pressed.png" id="4_o5koo"]
+[ext_resource type="Texture2D" uid="uid://1tao6s5n6por" path="res://assets/art/ui/buttons and sliders/startgame_hover.png" id="5_c81oj"]
+[ext_resource type="Texture2D" uid="uid://cwupcaicun2wx" path="res://assets/art/ui/buttons and sliders/options_static.png" id="6_ec58v"]
 [ext_resource type="PackedScene" uid="uid://5e005b582wsj" path="res://world/ui_audio.tscn" id="6_ut412"]
+[ext_resource type="Texture2D" uid="uid://dlhlycspnmff4" path="res://assets/art/ui/buttons and sliders/options_pressed.png" id="7_1yd6u"]
+[ext_resource type="Texture2D" uid="uid://00e7km3f5xyy" path="res://assets/art/ui/buttons and sliders/options_hover.png" id="8_qs82i"]
+[ext_resource type="Texture2D" uid="uid://y1hla6gcs6x1" path="res://assets/art/ui/buttons and sliders/back_static_small.png" id="9_0u27j"]
+[ext_resource type="Texture2D" uid="uid://bcj6r0t64kjft" path="res://assets/art/ui/buttons and sliders/back_pressed_small.png" id="10_ebac5"]
+[ext_resource type="FontFile" uid="uid://unrp27fvoifr" path="res://assets/art/ui/fonts/Winkle-Regular.otf" id="11_g5yvf"]
+[ext_resource type="Texture2D" uid="uid://n4pui5m5tdmi" path="res://assets/art/ui/buttons and sliders/slider_base.png" id="12_2t7dq"]
+[ext_resource type="Texture2D" uid="uid://5sf1wrxk6svr" path="res://assets/art/ui/buttons and sliders/slider_handle.png" id="13_kef5u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3w2k"]
+texture = ExtResource("12_2t7dq")
+expand_margin_left = 1.0
+expand_margin_top = 50.0
+expand_margin_bottom = 45.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_k20qx")
@@ -37,6 +53,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="start_button" type="TextureButton" parent="Control/menu_bg"]
+visible = false
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -52,13 +69,14 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(263, 132.5)
 action_mode = 0
-texture_normal = ExtResource("2_n2oni")
-texture_pressed = ExtResource("3_7yhor")
-texture_hover = ExtResource("4_7cukr")
+texture_normal = ExtResource("3_g6l6x")
+texture_pressed = ExtResource("4_o5koo")
+texture_hover = ExtResource("5_c81oj")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="options_button" type="TextureButton" parent="Control/menu_bg"]
+visible = false
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -74,9 +92,9 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(263, 132.5)
 action_mode = 0
-texture_normal = ExtResource("2_n2oni")
-texture_pressed = ExtResource("3_7yhor")
-texture_hover = ExtResource("4_7cukr")
+texture_normal = ExtResource("6_ec58v")
+texture_pressed = ExtResource("7_1yd6u")
+texture_hover = ExtResource("8_qs82i")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -88,35 +106,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -271.0
-offset_top = -165.0
-offset_right = 255.0
-offset_bottom = -52.0
+offset_left = -386.0
+offset_top = -164.0
+offset_right = -268.0
+offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(263, 132.5)
 action_mode = 0
-texture_normal = ExtResource("2_n2oni")
-texture_pressed = ExtResource("3_7yhor")
-texture_hover = ExtResource("4_7cukr")
+texture_normal = ExtResource("9_0u27j")
+texture_pressed = ExtResource("10_ebac5")
+texture_hover = ExtResource("9_0u27j")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="master_vol_text" type="RichTextLabel" parent="Control/menu_bg"]
 layout_mode = 0
-offset_left = 557.0
-offset_top = 485.0
-offset_right = 788.0
-offset_bottom = 509.0
+offset_left = 432.5
+offset_top = 429.5
+offset_right = 822.5
+offset_bottom = 474.5
+theme_override_fonts/normal_font = ExtResource("11_g5yvf")
+theme_override_font_sizes/normal_font_size = 61
 text = "MASTER VOLUME
 "
 
 [node name="master_vol_slider" type="HSlider" parent="Control/menu_bg"]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 512.0
-offset_right = 822.0
-offset_bottom = 528.0
+layout_mode = 1
+offset_left = 476.5
+offset_top = 483.5
+offset_right = 761.5
+offset_bottom = 593.5
+theme_override_icons/grabber = ExtResource("13_kef5u")
+theme_override_icons/grabber_highlight = ExtResource("13_kef5u")
+theme_override_styles/slider = SubResource("StyleBoxTexture_r3w2k")
 max_value = 1.0
 step = 0.1
 value = 0.5
@@ -126,8 +149,10 @@ scrollable = false
 
 [connection signal="mouse_entered" from="Control/menu_bg/start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="Control/menu_bg/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="button_up" from="Control/menu_bg/options_button" to="." method="_on_options_button_button_up"]
 [connection signal="mouse_entered" from="Control/menu_bg/options_button" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="Control/menu_bg/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="button_up" from="Control/menu_bg/option_back_button" to="." method="_on_option_back_button_button_up"]
 [connection signal="mouse_entered" from="Control/menu_bg/option_back_button" to="." method="_on_option_back_button_mouse_entered"]
 [connection signal="pressed" from="Control/menu_bg/option_back_button" to="." method="_on_option_back_button_pressed"]
 [connection signal="drag_started" from="Control/menu_bg/master_vol_slider" to="." method="_on_master_vol_slider_drag_started"]
