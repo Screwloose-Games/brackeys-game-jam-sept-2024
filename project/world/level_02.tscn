@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dmfpa0geogja2"]
+[gd_scene load_steps=35 format=4 uid="uid://dmfpa0geogja2"]
 
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_y7i85"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="2_6axcf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://ui/level_overlay/level_over_overlay.gd" id="17_5bhpg"]
 [ext_resource type="Script" path="res://ui/level_overlay/timer_label.gd" id="18_tdiil"]
 [ext_resource type="PackedScene" uid="uid://141x62251268" path="res://player/finish_area.tscn" id="19_t5eqq"]
+[ext_resource type="Script" path="res://environment/weather/rain_particles.gd" id="20_culta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ge1qi"]
 shader = ExtResource("3_1wbwm")
@@ -47,6 +48,31 @@ font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_231lq"]
 size = Vector2(145, 18.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bn376"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 10, 10)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 800.0
+initial_velocity_max = 4000.0
+gravity = Vector3(0, 0, 0)
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+
+[sub_resource type="Gradient" id="Gradient_grs13"]
+offsets = PackedFloat32Array(0, 0.484211, 1)
+colors = PackedColorArray(1, 1, 1, 0.152941, 1, 1, 1, 0.682353, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bf3em"]
+gradient = SubResource("Gradient_grs13")
+width = 1
+height = 10
+fill = 1
+fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12bjo"]
 size = Vector2(18, 24)
@@ -265,6 +291,22 @@ collision_mask = 256
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_231lq")
+
+[node name="WeatherVisualEffects" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="WeatherVisualEffects" node_paths=PackedStringArray("follow_target")]
+position = Vector2(281, 3)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_bn376")
+texture = SubResource("GradientTexture2D_bf3em")
+lifetime = 0.4
+trail_lifetime = 0.06
+script = ExtResource("20_culta")
+follow_target = NodePath("../../PlayerController")
+offset = Vector2(0, -160)
+rain = 1.0
+wind = 1.0
 
 [node name="DebugUILayer" type="CanvasLayer" parent="."]
 layer = 4

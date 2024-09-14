@@ -63,12 +63,12 @@ gravity = Vector3(0, 0, 0)
 turbulence_influence_min = 0.0
 turbulence_influence_max = 0.0
 
-[sub_resource type="Gradient" id="Gradient_grs13"]
+[sub_resource type="Gradient" id="Gradient_dfenn"]
 offsets = PackedFloat32Array(0, 0.484211, 1)
 colors = PackedColorArray(1, 1, 1, 0.152941, 1, 1, 1, 0.682353, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_478mo"]
-gradient = SubResource("Gradient_grs13")
+gradient = SubResource("Gradient_dfenn")
 width = 1
 height = 10
 fill = 1

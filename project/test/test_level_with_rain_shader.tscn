@@ -46,7 +46,7 @@ sources/0 = SubResource("TileSetAtlasSource_wy3hf")
 [sub_resource type="LabelSettings" id="LabelSettings_yyf4u"]
 font_size = 32
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j2onl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0niv2"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_231lq"]
@@ -73,7 +73,7 @@ width = 2
 height = 1
 fill_to = Vector2(0, 1)
 
-[node name="Level01" type="Node2D"]
+[node name="Level02" type="Node2D"]
 script = ExtResource("1_mkj0j")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
@@ -223,7 +223,7 @@ color = Color(0.109804, 0.109804, 0.109804, 0.580392)
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="RainDropScreen" parent="." instance=ExtResource("18_iwhio")]
-texture = SubResource("ViewportTexture_j2onl")
+texture = SubResource("ViewportTexture_0niv2")
 
 [node name="LevelOverlay" type="CanvasLayer" parent="."]
 
