@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dh1y6ydpn66ci"]
+[gd_scene load_steps=29 format=4 uid="uid://by6hi2654uvmd"]
 
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_e58cd"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="2_8ovox"]
@@ -53,9 +53,9 @@ size = Vector2(49, 13.5)
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(1000, 10, 10)
-angle_min = 60.0
-angle_max = 60.0
-direction = Vector3(1, 0.5, 0)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 800.0
 initial_velocity_max = 4000.0
@@ -176,6 +176,7 @@ position = Vector2(-76, -448)
 position = Vector2(-108, -152)
 
 [node name="weather_sfx" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("14_02lqb")
 transition_speed = 0.5
 
@@ -275,7 +276,7 @@ follow_viewport_enabled = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="WeatherVisualEffects" node_paths=PackedStringArray("follow_target")]
 position = Vector2(281, 3)
-amount = 500
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_4g575")
 texture = SubResource("GradientTexture2D_478mo")
 lifetime = 0.4
@@ -283,6 +284,8 @@ trail_lifetime = 0.06
 script = ExtResource("20_hwdkw")
 follow_target = NodePath("../../PlayerController")
 offset = Vector2(0, -160)
+rain = 1.0
+wind = 1.0
 
 [node name="DebugUILayer" type="CanvasLayer" parent="."]
 layer = 4

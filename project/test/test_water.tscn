@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://uqyq73ux8n3x"]
 
 [ext_resource type="TileSet" uid="uid://dymf5unxpo07w" path="res://environment/platforms/old_platform_tile_set.tres" id="1_ed8dy"]
-[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="2_jfky7"]
+[ext_resource type="PackedScene" uid="uid://cxrdoo0k1vvdv" path="res://environment/platforms/level_tile_map.tscn" id="2_jfky7"]
 [ext_resource type="PackedScene" uid="uid://bm7ywyepwryh7" path="res://player/player_controller.tscn" id="3_xo6q4"]
 [ext_resource type="PackedScene" uid="uid://c6walfh0cseu5" path="res://water/water.tscn" id="4_kcmln"]
 [ext_resource type="Script" path="res://environment/weather/weather_sfx.gd" id="5_xrcoe"]
