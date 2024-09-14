@@ -1,0 +1,573 @@
+[gd_scene load_steps=29 format=3 uid="uid://ddaoocd725f7r"]
+
+[ext_resource type="Script" path="res://party_frog.gd" id="1_fykmc"]
+[ext_resource type="Texture2D" uid="uid://bwjaw7r7p4hod" path="res://player/frog_anim.png" id="2_qonyv"]
+
+[sub_resource type="Animation" id="Animation_ucvvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"croak"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="Animation" id="Animation_7bu5o"]
+resource_name = "small_hop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"hop in place", &"hop in place"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.366667, 0.566667, 0.733333, 0.9, 1, 1.16667, 1.36667, 1.56667, 1.73333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0, 0, 1, 2, 3, 4, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_xtk48"]
+resource_name = "head_bob"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"headbob"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_eqvkg"]
+resource_name = "big_hop_side"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"big hop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1.33333, 1.58333, 1.83333, 2, 2.25, 2.5, 2.75, 3.33333, 3.58333, 3.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 0, 1, 2, 3, 4, 5, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1.83333, 2.05, 3, 3.88333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, -10), Vector2(20, 0), Vector2(20, 0), Vector2(10, -10), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="Animation" id="Animation_aacu3"]
+resource_name = "frog_croak"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"croak"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_hr0j0"]
+resource_name = "hop_down"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"big hop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1.33333, 1.58333, 1.83333, 2, 2.25, 2.5, 2.75, 3.33333, 3.58333, 3.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 0, 1, 2, 3, 4, 5, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1.83333, 2.05, 3, 3.88333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, -10), Vector2(20, 8), Vector2(20, 8), Vector2(10, -10), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_vjnmv"]
+resource_name = "hop_up"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"big hop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1.33333, 1.58333, 1.83333, 2, 2.25, 2.5, 2.75, 3.33333, 3.58333, 3.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 0, 1, 2, 3, 4, 5, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1.83333, 2.05, 3, 3.88333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, -10), Vector2(-20, -8), Vector2(-20, -8), Vector2(-10, -10), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2y3fb"]
+_data = {
+"RESET": SubResource("Animation_ucvvx"),
+"big_hop_side": SubResource("Animation_eqvkg"),
+"frog_croak": SubResource("Animation_aacu3"),
+"head_bob": SubResource("Animation_xtk48"),
+"hop_down": SubResource("Animation_hr0j0"),
+"hop_up": SubResource("Animation_vjnmv"),
+"small_hop": SubResource("Animation_7bu5o")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxvj"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3k21"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(17, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4ud3"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(34, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abvop"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(51, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q416"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 22, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr803"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(17, 22, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnav0"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 66, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5oif"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(17, 66, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb3d3"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(34, 66, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvn5y"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 66, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb7gx"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h4yo"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mn2q"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(17, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iafan"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(34, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r5qs"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(51, 0, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sy7t"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(17, 22, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5ikn"]
+atlas = ExtResource("2_qonyv")
+region = Rect2(0, 0, 17, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a13b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifxvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3k21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4ud3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abvop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q416")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr803")
+}],
+"loop": true,
+"name": &"big hop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnav0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5oif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb3d3")
+}],
+"loop": true,
+"name": &"croak",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvn5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb7gx")
+}],
+"loop": true,
+"name": &"headbob",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h4yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mn2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iafan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r5qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sy7t")
+}],
+"loop": true,
+"name": &"hop in place",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5ikn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Party Frog" type="Node2D"]
+script = ExtResource("1_fykmc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2y3fb")
+}
+speed_scale = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6a13b")
+animation = &"croak"
