@@ -7,6 +7,12 @@ extends CanvasLayer
 @onready var master_vol_slider = $Control/menu_bg/master_vol_slider
 @onready var master_vol_text = $Control/menu_bg/master_vol_text
 
+@onready var sfx_vol_slider = $Control/menu_bg/sfx_vol_slider
+@onready var sfx_vol_text = $Control/menu_bg/sfx_vol_text
+
+@onready var music_vol_slider = $Control/menu_bg/music_vol_slider
+@onready var music_vol_text = $Control/menu_bg/music_vol_text
+
 @onready var ui_audio = $ui_audio
 
 var level_scene = preload("res://world/level_01.tscn")
@@ -18,9 +24,18 @@ var is_option_menu_open : bool
 
 func _ready() -> void:
   audio_control._init_music(audio_control.theme)
+  
+  #set values for sliders
   master_vol_slider.value = audio_control._get_volume_normalized(audio_control.audio_bus_type.MASTER)
+  sfx_vol_slider.value = audio_control._get_volume_normalized(audio_control.audio_bus_type.SFX)
+  music_vol_slider.value = audio_control._get_volume_normalized(audio_control.audio_bus_type.MUSIC)
+  
   master_vol_slider.hide()
   master_vol_text.hide()
+  sfx_vol_slider.hide()
+  sfx_vol_text.hide()
+  music_vol_slider.hide()
+  music_vol_text.hide()
   back_options_button.hide()
 
 func _on_start_button_pressed() -> void:
@@ -65,12 +80,32 @@ func _on_options_button_button_up() -> void:
     
   master_vol_slider.show()
   master_vol_text.show()
+  sfx_vol_slider.show()
+  sfx_vol_text.show()
+  music_vol_slider.show()
+  music_vol_text.show()
+  
   back_options_button.show()
 
 
 func _on_option_back_button_button_up() -> void:
   master_vol_slider.hide()
   master_vol_text.hide()
+  sfx_vol_slider.hide()
+  sfx_vol_text.hide()
+  music_vol_slider.hide()
+  music_vol_text.hide()
+  
   back_options_button.hide()
   start_button.show()
   options_button.show()
+
+
+func _on_sfx_vol_slider_value_changed(value: float) -> void:
+  audio_control._set_volume(audio_control.audio_bus_type.SFX, sfx_vol_slider.value)
+  ui_audio._hover()
+
+
+func _on_music_vol_slider_value_changed(value: float) -> void:
+  audio_control._set_volume(audio_control.audio_bus_type.MUSIC, music_vol_slider.value)
+  ui_audio._hover()
