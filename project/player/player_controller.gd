@@ -137,7 +137,6 @@ func _on_water_detector_area_entered(area:Area2D):
         #edge case
         pass
       else:
-        print("water detector enter trigger breach")
         player_state = PlayerState.breached
         breached.emit()
         velocity = Vector2.ZERO
@@ -151,7 +150,6 @@ func _on_water_detector_area_entered(area:Area2D):
       else:
         #edge case
         pass
-      print("water detector enter ", in_pool)
       $frog_hop_audio._play_submerge()
       audio_control._toggle_water_effect(true)
       jump_from_breach = false
@@ -164,7 +162,6 @@ func _on_water_detector_area_exited(area):
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
       in_pool = false
-      print("exited breach colliding with", area)
       player_state = PlayerState.land
       exit_breached.emit()
       jump_from_breach = false
@@ -174,11 +171,9 @@ func _on_water_detector_area_exited(area):
       if (area.owner is Pool):
         current_pool_height = (area.owner as Pool).pool_height
         in_pool = true
-        print("in pool is true!")
       else:
         in_pool = false
       if not in_water:
-        print("water detector exit trigger breach",area, in_pool)
         player_state = PlayerState.breached
         velocity = Vector2.ZERO
         breached.emit()

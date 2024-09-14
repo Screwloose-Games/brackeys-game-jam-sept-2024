@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_ke4tm"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="1_qrpsp"]
 [ext_resource type="Texture2D" uid="uid://dkpjo8sooj1au" path="res://assets/art/fx/drip.png" id="2_htltf"]
-[ext_resource type="PackedScene" uid="uid://cxrdoo0k1vvdv" path="res://environment/platforms/level_tile_map.tscn" id="2_o833c"]
+[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="2_o833c"]
 [ext_resource type="Shader" path="res://environment/drips_visibility.gdshader" id="2_qoapj"]
 [ext_resource type="TileSet" uid="uid://digwd7rbe2n4o" path="res://environment/platforms/platform_tile_set.tres" id="3_0b0tc"]
 [ext_resource type="Script" path="res://world/drip_tiles.gd" id="3_jm4q7"]
