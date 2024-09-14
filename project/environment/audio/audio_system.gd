@@ -14,6 +14,7 @@ enum track_type { TRACK_A, TRACK_B }
 # Series of music tracks that can be referenced when changing the music
 @export var theme : AudioStreamMP3
 @export var level_light : AudioStreamMP3
+@export var level_upbeat : AudioStreamMP3
 
 # Audio players
 @onready var track_a = $track_A
