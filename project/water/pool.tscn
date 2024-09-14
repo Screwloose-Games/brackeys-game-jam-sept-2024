@@ -11,11 +11,11 @@ size = Vector2(26, 8)
 [node name="Pool" type="Node2D"]
 script = ExtResource("1_qu2pr")
 
-[node name="Water" type="Area2D" parent="."]
+[node name="Pool" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pool"]
 shape = SubResource("RectangleShape2D_kny08")
 
 [node name="SurfaceWater" type="Area2D" parent="."]

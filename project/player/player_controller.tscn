@@ -277,7 +277,7 @@ swim = ExtResource("10_wo0y3")
 
 [node name="WaterDetector" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_mask = 12
+collision_mask = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
 visible = false
