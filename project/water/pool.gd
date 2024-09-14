@@ -1,7 +1,7 @@
 class_name Pool
 extends Node2D
 
-@onready var surface_water = $SurfaceWater
+@onready var surface_water = $SurfaceWaterPool
 @onready var water_pool_color = $WaterPoolColor
 @onready var water_ref: Node2D = %Water
 var pool_height: float
