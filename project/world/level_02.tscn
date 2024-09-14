@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://environment/drips_visibility.gdshader" id="3_1wbwm"]
 [ext_resource type="Texture2D" uid="uid://dkpjo8sooj1au" path="res://assets/art/fx/drip.png" id="4_hgn72"]
 [ext_resource type="Script" path="res://world/drip_tiles.gd" id="5_pqqi2"]
-[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="6_hntvu"]
+[ext_resource type="PackedScene" uid="uid://cxrdoo0k1vvdv" path="res://environment/platforms/level_tile_map.tscn" id="6_hntvu"]
 [ext_resource type="TileSet" uid="uid://digwd7rbe2n4o" path="res://environment/platforms/platform_tile_set.tres" id="7_f0y7e"]
 [ext_resource type="TileSet" uid="uid://c10r75brmaqvk" path="res://environment/edge_tile_set.tres" id="8_exqb5"]
 [ext_resource type="Texture2D" uid="uid://xe6da44hjqe5" path="res://assets/art/brick_edge.png" id="9_ndr83"]
