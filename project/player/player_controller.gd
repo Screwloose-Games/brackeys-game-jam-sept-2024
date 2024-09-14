@@ -31,6 +31,7 @@ var pool_breach_layer: int = 16
 var just_jumped = false
 var in_pool: bool = false
 var in_water: bool = false
+var in_pool_override_land: bool = false
 @export var player_state: PlayerState = PlayerState.land:
   set(val):
     if val != player_state:
@@ -131,12 +132,15 @@ func make_trail():
 func _on_water_detector_area_entered(area:Area2D):
   if area.collision_layer == water_layer:
     in_water = true
+  if area.collision_layer == pool_layer:
+    in_pool_override_land = true
   if player_state == PlayerState.water:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
       if in_pool:
         #edge case
         pass
-      else:
+      elif not in_pool_override_land:
+        print("breach from enter",in_pool_override_land)
         player_state = PlayerState.breached
         breached.emit()
         velocity = Vector2.ZERO
@@ -159,6 +163,8 @@ func _on_water_detector_area_entered(area:Area2D):
 func _on_water_detector_area_exited(area):
   if area.collision_layer == water_layer:
     in_water = false
+  if area.collision_layer == pool_layer:
+    in_pool_override_land = false
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
       in_pool = false
@@ -172,8 +178,10 @@ func _on_water_detector_area_exited(area):
         current_pool_height = (area.owner as Pool).pool_height
         in_pool = true
       else:
+        pass
         in_pool = false
-      if not in_water:
+      if not in_water and not in_pool_override_land:
+        print("breach from exit", in_pool_override_land)
         player_state = PlayerState.breached
         velocity = Vector2.ZERO
         breached.emit()
