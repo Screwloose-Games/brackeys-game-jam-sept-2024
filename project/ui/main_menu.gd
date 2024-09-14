@@ -15,7 +15,7 @@ extends CanvasLayer
 
 @onready var ui_audio = $ui_audio
 
-var level_scene = preload("res://world/level_01.tscn")
+var level_scene = SceneManager.MAIN_LEVEL
 var fade_transition = preload("res://ui/scene_transitions/fade_transition.tscn")
 var audio_control = AudioControl
 var scene_transition = SceneTransitionManager

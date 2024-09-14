@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="Rain in the Drain"
-run/main_scene="res://world/level_01.tscn"
+run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.109804, 0.109804, 0.109804, 1)
+boot_splash/image="res://assets/art/ui/splash_screen.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
 AudioControl="*res://world/audio_control.tscn"
 SceneTransitionManager="*res://ui/scene_transitions/scene_transition_manager.tscn"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+SceneManager="*res://autoloads/scene_manager.gd"
 
 [display]
 
@@ -33,7 +37,15 @@ movie_writer/movie_file="D:/projects/godot/brackeys-game-jam-sept-2024/movies/ex
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+
+[global_group]
+
+LevelTimer=""
+
+[gui]
+
+theme/custom_font="res://assets/art/ui/fonts/Winkle-Regular.otf"
 
 [input]
 
