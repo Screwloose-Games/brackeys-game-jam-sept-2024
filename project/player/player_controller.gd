@@ -133,19 +133,14 @@ func _on_water_detector_area_entered(area:Area2D):
     in_water = true
   if player_state == PlayerState.water:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
-      #if (area.owner is Pool):
-        #current_pool_height = (area.owner as Pool).pool_height
-        #in_pool = true
-      #else:
-        #in_pool = false
       if in_pool:
+        #edge case
         pass
       else:
         print("water detector enter trigger breach")
         player_state = PlayerState.breached
         breached.emit()
         velocity = Vector2.ZERO
-        #print("entering breached - play breaching water sound here")
         $frog_hop_audio._play_emerge()
         audio_control._toggle_water_effect(false)
   if player_state == PlayerState.land or PlayerState.breached:
@@ -154,8 +149,8 @@ func _on_water_detector_area_entered(area:Area2D):
         current_pool_height = (area.owner as Pool).pool_height
         in_pool = true
       else:
+        #edge case
         pass
-        #in_pool = false
       print("water detector enter ", in_pool)
       $frog_hop_audio._play_submerge()
       audio_control._toggle_water_effect(true)
@@ -168,13 +163,11 @@ func _on_water_detector_area_exited(area):
     in_water = false
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
-      #if (area.owner is Pool):
       in_pool = false
       print("exited breach colliding with", area)
       player_state = PlayerState.land
       exit_breached.emit()
       jump_from_breach = false
-      #print("on land - play jumping out of water sound")
       audio_control._toggle_water_effect(false)
   if player_state == PlayerState.water:
     if area.collision_layer == water_layer or area.collision_layer == pool_layer:
@@ -184,19 +177,15 @@ func _on_water_detector_area_exited(area):
         print("in pool is true!")
       else:
         in_pool = false
-
-          #in_pool = false
-        #if in_pool:
-          #pass
-        #else:
       if not in_water:
         print("water detector exit trigger breach",area, in_pool)
         player_state = PlayerState.breached
         velocity = Vector2.ZERO
         breached.emit()
-        #print("entering breached - play breaching water sound here")
         audio_control._toggle_water_effect(false)
       else:
+        #edge case:
+        #if exiting a water/pool layer, while still in_water pool despawned
         pass
 
 func just_jumped_delay():
