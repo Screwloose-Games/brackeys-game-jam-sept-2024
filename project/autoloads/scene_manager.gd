@@ -1,6 +1,6 @@
 extends Node
 
-var MAIN_LEVEL = load("res://world/level_01.tscn")
+var MAIN_LEVEL = load("res://world/level_02.tscn")
 var MAIN_MENU = load("res://ui/main_menu.tscn")
 var LEADERBOARD = load("res://ui/screens/leaderboard.tscn")
 var INPUT_SCORE = load("res://ui/level_overlay/input_score.tscn")
