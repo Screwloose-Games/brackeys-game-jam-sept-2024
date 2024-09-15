@@ -18,6 +18,7 @@ func _on_player_finished():
     await get_tree().create_timer(1).timeout
   
 func _on_finish_pressed():
+    finish.visible=false
     overlay.show()
     var input_score_scene = SceneManager.INPUT_SCORE.instantiate()
     var level_timer = get_tree().get_first_node_in_group("LevelTimer")
