@@ -15,6 +15,8 @@ signal jump_preview(angle: float, power: float)
 var pivot_location: Vector2
 var mouse_button_held: bool = false
 
+var pressed_location: Vector2
+
 var mouse_dist: float:
   set(val):
     mouse_dist = min(val, max_mouse_dist)
@@ -23,17 +25,27 @@ func _ready() -> void:
     pivot_location = pivot_offset
     visible = false
 
+func get_mobile_origin():
+  return pressed_location
+
+func get_direction():
+  if OSUtils.is_mobile():
+    return get_global_mouse_position() - pressed_location
+  else:
+    return get_global_mouse_position() - arrow_rotation_pivot.global_position
+
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseButton:
         if event.button_index == MOUSE_BUTTON_LEFT:
             if event.pressed:
                 mouse_button_held = true
                 visible = true
+                pressed_location = get_global_mouse_position()
             else:
                 mouse_button_held = false
                 visible = false
-                var mouse_pos = get_global_mouse_position()
-                var direction = mouse_pos - arrow_rotation_pivot.global_position
+                #var mouse_pos = get_global_mouse_position()
+                var direction = get_direction()
                 var angle = direction.angle() + 1.5 * PI
                 mouse_dist = direction.length()
                 var power = mouse_dist_to_power(mouse_dist)
@@ -42,8 +54,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
     if mouse_button_held:
-        var mouse_pos = get_global_mouse_position()
-        var direction = mouse_pos - arrow_rotation_pivot.global_position
+        #var mouse_pos = get_global_mouse_position()
+        var direction = get_direction()
         mouse_dist = direction.length()
         var angle = direction.angle() + 1.5 * PI
         var power = mouse_dist_to_power(mouse_dist)

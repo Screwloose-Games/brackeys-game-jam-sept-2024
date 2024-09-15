@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5e005b582wsj"]
+[gd_scene load_steps=7 format=3 uid="uid://tl80aws2fga4"]
 
 [ext_resource type="Script" path="res://environment/audio/ui_audio.gd" id="1_afbp0"]
 [ext_resource type="AudioStream" uid="uid://bbl1jn6dxjv2v" path="res://assets/sound/sfx/ui/ui_hover.wav" id="2_31rwr"]

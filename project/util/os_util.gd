@@ -14,3 +14,6 @@ static func handle_text_input_text_focus(current_text: String = ""):
 static func handle_text_input_event(event: InputEvent):
     if event is InputEventScreenTouch:
         show_virtual_keyboard()
+
+static func is_mobile():
+  return OS.has_feature("web_android") or OS.has_feature("web_ios")

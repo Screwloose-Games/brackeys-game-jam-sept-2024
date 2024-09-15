@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 var CIRCLE_TRANSITION = SceneManager.CIRCLE_TRANSITION
 var MAIN_MENU = SceneManager.MAIN_MENU
