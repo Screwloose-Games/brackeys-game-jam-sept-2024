@@ -1,9 +1,25 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=22 format=3 uid="uid://heutwne4g8qh"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=50 format=3 uid="uid://timl345a7jx2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7p2m"]
 animation = &"gentle"
 use_custom_timeline = true
 timeline_length = 45.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vx472"]
+animation = &"gentle"
+use_custom_timeline = true
+timeline_length = 35.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bfcsy"]
+animation = &"gentle"
+use_custom_timeline = true
+timeline_length = 35.0
 stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
@@ -16,8 +32,32 @@ stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_few28"]
+animation = &"intese_left"
+use_custom_timeline = true
+timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_atreo"]
+animation = &"intese_left"
+use_custom_timeline = true
+timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtxt6"]
 animation = &"intese_left"
+use_custom_timeline = true
+timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_smic1"]
+animation = &"intese_right"
 use_custom_timeline = true
 timeline_length = 5.0
 stretch_time_scale = true
@@ -36,6 +76,30 @@ loop_mode = 0
 animation = &"rain_full"
 use_custom_timeline = true
 timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pr6xh"]
+animation = &"rain_heavy"
+use_custom_timeline = true
+timeline_length = 7.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fmbj"]
+animation = &"rain_heavy"
+use_custom_timeline = true
+timeline_length = 7.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sie6r"]
+animation = &"rain_heavy"
+use_custom_timeline = true
+timeline_length = 2.0
 stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
@@ -64,10 +128,58 @@ stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqkyq"]
+animation = &"wind_subtle_left"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p7qq7"]
+animation = &"wind_subtle_left"
+use_custom_timeline = true
+timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_11sur"]
+animation = &"wind_subtle_left"
+use_custom_timeline = true
+timeline_length = 3.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7r8dc"]
+animation = &"wind_subtle_left"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sjup4"]
 animation = &"wind_subtle_left"
 use_custom_timeline = true
 timeline_length = 5.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wi4up"]
+animation = &"wind_subtle_right"
+use_custom_timeline = true
+timeline_length = 3.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ldut"]
+animation = &"wind_subtle_right"
+use_custom_timeline = true
+timeline_length = 1.0
 stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 0
@@ -82,12 +194,6 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07gtc"]
 xfade_time = 5.0
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57fpe"]
-xfade_time = 10.0
 break_loop_at_end = true
 switch_mode = 2
 advance_mode = 2
@@ -131,31 +237,133 @@ advance_mode = 2
 xfade_time = 5.0
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xy70w"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lm705"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1hb4"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s0dj5"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b0y0w"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iqopg"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_el7fe"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n6r3h"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_onvjb"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oe2s0"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wngo3"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lllc1"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1d3ec"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hv7h0"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_orbks"]
+xfade_time = 1.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rx4be"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_70df0"]
+xfade_time = 1.0
+switch_mode = 2
 advance_mode = 2
 
 [resource]
 states/End/position = Vector2(975, 359)
-states/Start/position = Vector2(-21, 181)
+states/Start/position = Vector2(40, 52)
 states/gentle/node = SubResource("AnimationNodeAnimation_nudgb")
-states/gentle/position = Vector2(342, 233)
+states/gentle/position = Vector2(366, 338)
 "states/gentle 2/node" = SubResource("AnimationNodeAnimation_y7p2m")
-"states/gentle 2/position" = Vector2(926, -88)
+"states/gentle 2/position" = Vector2(668, 271)
+"states/gentle 3/node" = SubResource("AnimationNodeAnimation_vx472")
+"states/gentle 3/position" = Vector2(1465, 7.22363)
+"states/gentle 4/node" = SubResource("AnimationNodeAnimation_bfcsy")
+"states/gentle 4/position" = Vector2(688, 45)
 states/intese_left/node = SubResource("AnimationNodeAnimation_gtxt6")
-states/intese_left/position = Vector2(775, -10)
+states/intese_left/position = Vector2(514, 271)
+"states/intese_left 2/node" = SubResource("AnimationNodeAnimation_few28")
+"states/intese_left 2/position" = Vector2(407, 49)
+"states/intese_left 3/node" = SubResource("AnimationNodeAnimation_atreo")
+"states/intese_left 3/position" = Vector2(1162, -143.776)
 states/intese_right/node = SubResource("AnimationNodeAnimation_axqgq")
-states/intese_right/position = Vector2(1173, 249)
+states/intese_right/position = Vector2(514, 347)
+"states/intese_right 2/node" = SubResource("AnimationNodeAnimation_smic1")
+"states/intese_right 2/position" = Vector2(1078.11, 179.224)
 states/rain_full/node = SubResource("AnimationNodeAnimation_nhlcs")
-states/rain_full/position = Vector2(1260, 110)
+states/rain_full/position = Vector2(668, 359)
 states/rain_heavy/node = SubResource("AnimationNodeAnimation_422ys")
-states/rain_heavy/position = Vector2(567, 0)
+states/rain_heavy/position = Vector2(378, 271)
+"states/rain_heavy 2/node" = SubResource("AnimationNodeAnimation_pr6xh")
+"states/rain_heavy 2/position" = Vector2(851, -69.7764)
+"states/rain_heavy 3/node" = SubResource("AnimationNodeAnimation_3fmbj")
+"states/rain_heavy 3/position" = Vector2(1437.11, 96.2236)
+"states/rain_heavy 4/node" = SubResource("AnimationNodeAnimation_sie6r")
+"states/rain_heavy 4/position" = Vector2(187.109, 52)
 states/rain_medium/node = SubResource("AnimationNodeAnimation_wv4ip")
-states/rain_medium/position = Vector2(190, 62)
+states/rain_medium/position = Vector2(236, 338)
 "states/rain_medium 2/node" = SubResource("AnimationNodeAnimation_f6hrl")
-"states/rain_medium 2/position" = Vector2(975, 70)
+"states/rain_medium 2/position" = Vector2(851, 271)
 states/wind_subtle_left/node = SubResource("AnimationNodeAnimation_sjup4")
-states/wind_subtle_left/position = Vector2(354, -111)
+states/wind_subtle_left/position = Vector2(143, 240)
+"states/wind_subtle_left 2/node" = SubResource("AnimationNodeAnimation_tqkyq")
+"states/wind_subtle_left 2/position" = Vector2(501, -33)
+"states/wind_subtle_left 3/node" = SubResource("AnimationNodeAnimation_p7qq7")
+"states/wind_subtle_left 3/position" = Vector2(291, -33)
+"states/wind_subtle_left 4/node" = SubResource("AnimationNodeAnimation_11sur")
+"states/wind_subtle_left 4/position" = Vector2(1043, -69.7764)
+"states/wind_subtle_left 5/node" = SubResource("AnimationNodeAnimation_7r8dc")
+"states/wind_subtle_left 5/position" = Vector2(1303, -69.7764)
 states/wind_subtle_right/node = SubResource("AnimationNodeAnimation_s1hpk")
-states/wind_subtle_right/position = Vector2(1164, -59)
-transitions = ["gentle", "rain_medium", SubResource("AnimationNodeStateMachineTransition_07gtc"), "rain_medium", "wind_subtle_left", SubResource("AnimationNodeStateMachineTransition_57fpe"), "wind_subtle_left", "rain_heavy", SubResource("AnimationNodeStateMachineTransition_dvxry"), "rain_heavy", "intese_left", SubResource("AnimationNodeStateMachineTransition_mg7um"), "rain_medium 2", "wind_subtle_right", SubResource("AnimationNodeStateMachineTransition_5mlw0"), "wind_subtle_right", "rain_full", SubResource("AnimationNodeStateMachineTransition_pfp4f"), "rain_full", "intese_right", SubResource("AnimationNodeStateMachineTransition_6a3ll"), "intese_right", "gentle", SubResource("AnimationNodeStateMachineTransition_jlld8"), "intese_left", "gentle 2", SubResource("AnimationNodeStateMachineTransition_l5bt4"), "gentle 2", "rain_medium 2", SubResource("AnimationNodeStateMachineTransition_3b18a"), "Start", "rain_medium", SubResource("AnimationNodeStateMachineTransition_xy70w")]
-graph_offset = Vector2(162, -160)
+states/wind_subtle_right/position = Vector2(844, 381)
+"states/wind_subtle_right 2/node" = SubResource("AnimationNodeAnimation_wi4up")
+"states/wind_subtle_right 2/position" = Vector2(1256, 118.224)
+"states/wind_subtle_right 3/node" = SubResource("AnimationNodeAnimation_0ldut")
+"states/wind_subtle_right 3/position" = Vector2(851, 118.224)
+transitions = ["gentle", "rain_medium", SubResource("AnimationNodeStateMachineTransition_07gtc"), "wind_subtle_left", "rain_heavy", SubResource("AnimationNodeStateMachineTransition_dvxry"), "rain_heavy", "intese_left", SubResource("AnimationNodeStateMachineTransition_mg7um"), "rain_medium 2", "wind_subtle_right", SubResource("AnimationNodeStateMachineTransition_5mlw0"), "wind_subtle_right", "rain_full", SubResource("AnimationNodeStateMachineTransition_pfp4f"), "rain_full", "intese_right", SubResource("AnimationNodeStateMachineTransition_6a3ll"), "intese_right", "gentle", SubResource("AnimationNodeStateMachineTransition_jlld8"), "intese_left", "gentle 2", SubResource("AnimationNodeStateMachineTransition_l5bt4"), "gentle 2", "rain_medium 2", SubResource("AnimationNodeStateMachineTransition_3b18a"), "rain_medium", "wind_subtle_left", SubResource("AnimationNodeStateMachineTransition_lm705"), "intese_left 2", "wind_subtle_left 2", SubResource("AnimationNodeStateMachineTransition_g1hb4"), "wind_subtle_left 2", "gentle 4", SubResource("AnimationNodeStateMachineTransition_s0dj5"), "wind_subtle_left 3", "intese_left 2", SubResource("AnimationNodeStateMachineTransition_b0y0w"), "gentle 4", "rain_heavy 2", SubResource("AnimationNodeStateMachineTransition_iqopg"), "rain_heavy 2", "wind_subtle_left 4", SubResource("AnimationNodeStateMachineTransition_el7fe"), "wind_subtle_left 4", "intese_left 3", SubResource("AnimationNodeStateMachineTransition_n6r3h"), "intese_left 3", "wind_subtle_left 5", SubResource("AnimationNodeStateMachineTransition_onvjb"), "wind_subtle_left 5", "gentle 3", SubResource("AnimationNodeStateMachineTransition_oe2s0"), "wind_subtle_right 2", "intese_right 2", SubResource("AnimationNodeStateMachineTransition_wngo3"), "intese_right 2", "wind_subtle_right 3", SubResource("AnimationNodeStateMachineTransition_lllc1"), "wind_subtle_right 3", "gentle 4", SubResource("AnimationNodeStateMachineTransition_1d3ec"), "gentle 3", "rain_heavy 3", SubResource("AnimationNodeStateMachineTransition_hv7h0"), "rain_heavy 3", "wind_subtle_right 2", SubResource("AnimationNodeStateMachineTransition_orbks"), "Start", "rain_heavy 4", SubResource("AnimationNodeStateMachineTransition_rx4be"), "rain_heavy 4", "wind_subtle_left 3", SubResource("AnimationNodeStateMachineTransition_70df0")]
+graph_offset = Vector2(490.109, -175.776)
