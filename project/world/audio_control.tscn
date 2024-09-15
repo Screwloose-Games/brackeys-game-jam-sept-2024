@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv5vytcygdb42"]
+[gd_scene load_steps=5 format=3 uid="uid://bv5vytcygdb42"]
 
 [ext_resource type="Script" path="res://environment/audio/audio_system.gd" id="1_t2pgc"]
 [ext_resource type="AudioStream" uid="uid://d0oj817cwipn8" path="res://assets/sound/music/Theme.mp3" id="2_qkarb"]
 [ext_resource type="AudioStream" uid="uid://bn7gysbqupnyw" path="res://assets/sound/music/music_01.mp3" id="3_0eyuh"]
+[ext_resource type="AudioStream" uid="uid://f2qobr2m860m" path="res://assets/sound/music/music_02.mp3" id="4_rgi21"]
 
 [node name="audio_control" type="Node"]
 script = ExtResource("1_t2pgc")
-master_vol = 0.5
+master_vol = 0.45
 sfx_vol = 1.0
 music_vol = 0.84
 filter_transition_time = 0.5
@@ -14,6 +15,7 @@ cutoff = 1300.0
 resonance = 0.5
 theme = ExtResource("2_qkarb")
 level_light = ExtResource("3_0eyuh")
+level_upbeat = ExtResource("4_rgi21")
 
 [node name="track_A" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

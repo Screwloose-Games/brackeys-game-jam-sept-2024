@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bsiq4dlk48ei" path="res://assets/sound/sfx/weather/light_rain.wav" id="6_1n3lc"]
 [ext_resource type="AudioStream" uid="uid://b3lvdph5xa7v" path="res://assets/sound/sfx/weather/heavy_rain.wav" id="7_4igti"]
 
-[node name="Level01" type="Node2D"]
+[node name="Level02" type="Node2D"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 modulate = Color(0.654232, 0.654232, 0.654232, 1)
@@ -40,7 +40,6 @@ starting_water_height = 10.0
 
 [node name="weather_sfx" type="Node" parent="."]
 script = ExtResource("5_xrcoe")
-transition_speed = 0.5
 
 [node name="light_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("6_1n3lc")

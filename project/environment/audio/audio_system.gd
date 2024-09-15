@@ -14,6 +14,7 @@ enum track_type { TRACK_A, TRACK_B }
 # Series of music tracks that can be referenced when changing the music
 @export var theme : AudioStreamMP3
 @export var level_light : AudioStreamMP3
+@export var level_upbeat : AudioStreamMP3
 
 # Audio players
 @onready var track_a = $track_A
@@ -121,3 +122,6 @@ func _toggle_water_effect(is_under_water : bool) -> void:
       var tween = get_tree().create_tween()
       tween.tween_property(lps_filter, ":cutoff_hz", 20500, filter_transition_time)
       tween.tween_property(lps_filter, ":resonance", 0.5, filter_transition_time)
+      
+func _back_to_menu() -> void:
+  _change_music(theme, 3.0)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b06cym37qn4aj"]
+
+[ext_resource type="Shader" path="res://test/pixel_rain.gdshader" id="1_dnlrr"]
+[ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="2_p1tvr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3b0qn"]
+shader = ExtResource("1_dnlrr")
+shader_parameter/angle = 45.0
+shader_parameter/count = 100
+shader_parameter/length = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0klb4"]
+shader = ExtResource("2_p1tvr")
+shader_parameter/frequency = 0.0
+shader_parameter/size = 0.015
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_co13u"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(560, 10, 10)
+direction = Vector3(1, 1, 0)
+spread = 0.0
+initial_velocity_min = 5000.0
+initial_velocity_max = 5000.0
+gravity = Vector3(0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_3b0qn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RainDropScreen" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_0klb4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(281, 3)
+process_material = SubResource("ParticleProcessMaterial_co13u")
+lifetime = 0.25
+trail_enabled = true
+trail_lifetime = 0.1
