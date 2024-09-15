@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://dmfpa0geogja2"]
+[gd_scene load_steps=42 format=4 uid="uid://dmfpa0geogja2"]
 
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_y7i85"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="2_6axcf"]
@@ -16,11 +16,15 @@
 [ext_resource type="Script" path="res://environment/weather/weather_sfx.gd" id="14_6wv46"]
 [ext_resource type="AudioStream" uid="uid://bsiq4dlk48ei" path="res://assets/sound/sfx/weather/light_rain.wav" id="15_ev0x7"]
 [ext_resource type="AudioStream" uid="uid://b3lvdph5xa7v" path="res://assets/sound/sfx/weather/heavy_rain.wav" id="16_oiq2i"]
+[ext_resource type="AudioStream" uid="uid://dtd0pi10pjyq3" path="res://assets/sound/sfx/weather/wind_heavy.wav" id="17_2dtyi"]
 [ext_resource type="Script" path="res://ui/level_overlay/level_over_overlay.gd" id="17_5bhpg"]
 [ext_resource type="Script" path="res://ui/level_overlay/timer_label.gd" id="18_tdiil"]
 [ext_resource type="PackedScene" uid="uid://141x62251268" path="res://player/finish_area.tscn" id="19_t5eqq"]
 [ext_resource type="Script" path="res://environment/weather/rain_particles.gd" id="20_culta"]
+[ext_resource type="Script" path="res://environment/weather/weather_initializer.gd" id="21_gr6kd"]
 [ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="21_yxxe7"]
+[ext_resource type="AnimationLibrary" uid="uid://mncnbprhxusw" path="res://environment/weather/weather_animation_library.tres" id="23_ce4i5"]
+[ext_resource type="AnimationNodeStateMachine" path="res://environment/weather/weather_animation_tree.tres" id="23_qkftk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ge1qi"]
 shader = ExtResource("3_1wbwm")
@@ -77,417 +81,6 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1i3ep"]
 viewport_path = NodePath("UIVisualEffects/Control/SubViewport")
-
-[sub_resource type="Animation" id="Animation_oyh34"]
-resource_name = "weather_cycle"
-length = 60.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.03333, 8.4, 10.4, 40.2333, 44.3333, 57, 60.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.25, 1.0, 1.0, 0.0, 0.0, 0.25, 0.25, 0.25]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeatherController:wind")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.06667, 8.4, 10.3667, 40.3, 44.5333, 57.2667, 60.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.25, -1.0, -1.0, 0.0, 0.0, 0.0, 0.25, -0.25]
-}
-
-[sub_resource type="Animation" id="Animation_u2ax0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeatherController:wind")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.0]
-}
-
-[sub_resource type="Animation" id="Animation_w1jfi"]
-resource_name = "gentle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeatherController:wind")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_1rrxu"]
-resource_name = "wind_subtle_left"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:wind")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.5]
-}
-
-[sub_resource type="Animation" id="Animation_l4hh2"]
-resource_name = "wind_subtle_right"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:wind")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-
-[sub_resource type="Animation" id="Animation_griq7"]
-resource_name = "intese_left"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeatherController:wind")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.0]
-}
-
-[sub_resource type="Animation" id="Animation_f7d1u"]
-resource_name = "intese_right"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeatherController:wind")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_r0j4w"]
-resource_name = "rain_gentle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_rf3dh"]
-resource_name = "rain_medium"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.25]
-}
-
-[sub_resource type="Animation" id="Animation_q4iyt"]
-resource_name = "rain_heavy"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.75]
-}
-
-[sub_resource type="Animation" id="Animation_7fro5"]
-resource_name = "rain_full"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeatherController:rain")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.75]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p45tr"]
-_data = {
-"RESET": SubResource("Animation_u2ax0"),
-"gentle": SubResource("Animation_w1jfi"),
-"intese_left": SubResource("Animation_griq7"),
-"intese_right": SubResource("Animation_f7d1u"),
-"rain_full": SubResource("Animation_7fro5"),
-"rain_gentle": SubResource("Animation_r0j4w"),
-"rain_heavy": SubResource("Animation_q4iyt"),
-"rain_medium": SubResource("Animation_rf3dh"),
-"weather_cycle": SubResource("Animation_oyh34"),
-"wind_subtle_left": SubResource("Animation_1rrxu"),
-"wind_subtle_right": SubResource("Animation_l4hh2")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7p2m"]
-animation = &"gentle"
-use_custom_timeline = true
-timeline_length = 45.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nudgb"]
-animation = &"gentle"
-use_custom_timeline = true
-timeline_length = 45.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtxt6"]
-animation = &"intese_left"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axqgq"]
-animation = &"intese_right"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nhlcs"]
-animation = &"rain_full"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_422ys"]
-animation = &"rain_heavy"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f6hrl"]
-animation = &"rain_medium"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wv4ip"]
-animation = &"rain_medium"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sjup4"]
-animation = &"wind_subtle_left"
-use_custom_timeline = true
-timeline_length = 5.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s1hpk"]
-animation = &"wind_subtle_right"
-use_custom_timeline = true
-timeline_length = 10.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07gtc"]
-xfade_time = 5.0
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57fpe"]
-xfade_time = 10.0
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dvxry"]
-xfade_time = 10.0
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mg7um"]
-xfade_time = 5.0
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5mlw0"]
-xfade_time = 5.0
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pfp4f"]
-xfade_time = 5.0
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6a3ll"]
-xfade_time = 5.0
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jlld8"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5bt4"]
-xfade_time = 5.0
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3b18a"]
-xfade_time = 5.0
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xy70w"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_slvcs"]
-states/End/position = Vector2(975, 359)
-states/Start/position = Vector2(-21, 181)
-states/gentle/node = SubResource("AnimationNodeAnimation_nudgb")
-states/gentle/position = Vector2(342, 233)
-"states/gentle 2/node" = SubResource("AnimationNodeAnimation_y7p2m")
-"states/gentle 2/position" = Vector2(926, -88)
-states/intese_left/node = SubResource("AnimationNodeAnimation_gtxt6")
-states/intese_left/position = Vector2(775, -10)
-states/intese_right/node = SubResource("AnimationNodeAnimation_axqgq")
-states/intese_right/position = Vector2(1173, 249)
-states/rain_full/node = SubResource("AnimationNodeAnimation_nhlcs")
-states/rain_full/position = Vector2(1260, 110)
-states/rain_heavy/node = SubResource("AnimationNodeAnimation_422ys")
-states/rain_heavy/position = Vector2(567, 0)
-states/rain_medium/node = SubResource("AnimationNodeAnimation_wv4ip")
-states/rain_medium/position = Vector2(190, 62)
-"states/rain_medium 2/node" = SubResource("AnimationNodeAnimation_f6hrl")
-"states/rain_medium 2/position" = Vector2(975, 70)
-states/wind_subtle_left/node = SubResource("AnimationNodeAnimation_sjup4")
-states/wind_subtle_left/position = Vector2(354, -111)
-states/wind_subtle_right/node = SubResource("AnimationNodeAnimation_s1hpk")
-states/wind_subtle_right/position = Vector2(1164, -59)
-transitions = ["gentle", "rain_medium", SubResource("AnimationNodeStateMachineTransition_07gtc"), "rain_medium", "wind_subtle_left", SubResource("AnimationNodeStateMachineTransition_57fpe"), "wind_subtle_left", "rain_heavy", SubResource("AnimationNodeStateMachineTransition_dvxry"), "rain_heavy", "intese_left", SubResource("AnimationNodeStateMachineTransition_mg7um"), "rain_medium 2", "wind_subtle_right", SubResource("AnimationNodeStateMachineTransition_5mlw0"), "wind_subtle_right", "rain_full", SubResource("AnimationNodeStateMachineTransition_pfp4f"), "rain_full", "intese_right", SubResource("AnimationNodeStateMachineTransition_6a3ll"), "intese_right", "gentle", SubResource("AnimationNodeStateMachineTransition_jlld8"), "intese_left", "gentle 2", SubResource("AnimationNodeStateMachineTransition_l5bt4"), "gentle 2", "rain_medium 2", SubResource("AnimationNodeStateMachineTransition_3b18a"), "Start", "rain_medium", SubResource("AnimationNodeStateMachineTransition_xy70w")]
-graph_offset = Vector2(162, -160)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sejff"]
 shader = ExtResource("21_yxxe7")
@@ -620,13 +213,21 @@ position = Vector2(44, -384)
 [node name="weather_sfx" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("14_6wv46")
-transition_speed = 0.5
+light_rain_vol = -2.0
+heavy_rain_vol = -10.5
+wind_vol = -2.0
 
 [node name="light_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("15_ev0x7")
+bus = &"SFX"
 
 [node name="heavy_rain_player" type="AudioStreamPlayer" parent="weather_sfx"]
 stream = ExtResource("16_oiq2i")
+bus = &"SFX"
+
+[node name="wind_player" type="AudioStreamPlayer" parent="weather_sfx"]
+stream = ExtResource("17_2dtyi")
+bus = &"SFX"
 
 [node name="LevelOverOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("finish_area")]
 script = ExtResource("17_5bhpg")
@@ -715,6 +316,7 @@ shape = SubResource("RectangleShape2D_231lq")
 
 [node name="WeatherVisualEffects" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+script = ExtResource("21_gr6kd")
 
 [node name="WeatherController" type="GPUParticles2D" parent="WeatherVisualEffects" node_paths=PackedStringArray("follow_target") groups=["WeatherController"]]
 position = Vector2(281, 3)
@@ -746,11 +348,12 @@ mouse_filter = 2
 
 [node name="WeatherAnimationPlayer" type="AnimationPlayer" parent="WeatherVisualEffects"]
 libraries = {
-"": SubResource("AnimationLibrary_p45tr")
+"": ExtResource("23_ce4i5")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="WeatherVisualEffects"]
-tree_root = SubResource("AnimationNodeStateMachine_slvcs")
+active = false
+tree_root = ExtResource("23_qkftk")
 anim_player = NodePath("../WeatherAnimationPlayer")
 
 [node name="UIVisualEffects" type="CanvasLayer" parent="."]

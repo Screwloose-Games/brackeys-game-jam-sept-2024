@@ -122,3 +122,6 @@ func _toggle_water_effect(is_under_water : bool) -> void:
       var tween = get_tree().create_tween()
       tween.tween_property(lps_filter, ":cutoff_hz", 20500, filter_transition_time)
       tween.tween_property(lps_filter, ":resonance", 0.5, filter_transition_time)
+      
+func _back_to_menu() -> void:
+  _change_music(theme, 3.0)

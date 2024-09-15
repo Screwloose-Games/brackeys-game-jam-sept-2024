@@ -6,9 +6,11 @@ extends AudioStreamPlayer2D
 @export var emerge : AudioStreamWAV
 @export var swim : AudioStreamWAV
 
+@onready var frog_water_hop_audio = $frog_water_hop_audio
+
 func _play_hop() -> void:
   stream = hop
-  volume_db = 0.0
+  volume_db = 2.0
   play()
 
 func _play_landing(is_long_drop: bool) -> void:
@@ -17,16 +19,16 @@ func _play_landing(is_long_drop: bool) -> void:
   play()
 
 func _play_submerge() -> void:
-  stream = submerge
-  volume_db = 0.0
-  play()
+  frog_water_hop_audio.stream = submerge
+  frog_water_hop_audio.volume_db = -1.0
+  frog_water_hop_audio.play()
 
 func _play_emerge() -> void:
-  stream = emerge
-  volume_db = 0.0
-  play()
+  frog_water_hop_audio.stream = emerge
+  frog_water_hop_audio.volume_db = -1.0
+  frog_water_hop_audio.play()
   
 func _play_swim() -> void:
-  stream = swim
-  volume_db = 0.0
-  play()
+  frog_water_hop_audio.stream = swim
+  frog_water_hop_audio.volume_db = -1.0
+  frog_water_hop_audio.play()
