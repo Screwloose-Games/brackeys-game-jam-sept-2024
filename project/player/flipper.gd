@@ -3,6 +3,8 @@ extends Node
 
 @onready var translation_base: CharacterBody2D = owner
 @onready var translation_target: Node2D = %Flippable
+@onready var collision_shape_2d = %CollisionShape2D
+
 
 func _process(delta):
     if is_moving_left():
@@ -21,6 +23,8 @@ func _is_facing_left():
 
 func _face_left():
     translation_target.global_transform.x.x = 1
-
+    collision_shape_2d.position = Vector2(2,-3)
+    
 func _face_right():
     translation_target.global_transform.x.x = -1
+    collision_shape_2d.position = Vector2(-1,-3)
