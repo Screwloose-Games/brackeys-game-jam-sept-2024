@@ -23,8 +23,8 @@
 [ext_resource type="Script" path="res://environment/weather/rain_particles.gd" id="20_culta"]
 [ext_resource type="Script" path="res://environment/weather/weather_initializer.gd" id="21_gr6kd"]
 [ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="21_yxxe7"]
-[ext_resource type="AnimationLibrary" uid="uid://dycgnbou275a3" path="res://environment/weather/weather_animation_library.tres" id="23_ce4i5"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://timl345a7jx2" path="res://environment/weather/weather_animation_tree.tres" id="23_qkftk"]
+[ext_resource type="AnimationLibrary" uid="uid://cn7genq8g4fvs" path="res://environment/weather/weather_animation_library.tres" id="23_ce4i5"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://heutwne4g8qh" path="res://environment/weather/weather_animation_tree.tres" id="23_qkftk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ge1qi"]
 shader = ExtResource("3_1wbwm")
