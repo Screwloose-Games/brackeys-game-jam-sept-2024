@@ -276,6 +276,9 @@ submerge = ExtResource("8_pckv1")
 emerge = ExtResource("9_neh4p")
 swim = ExtResource("10_wo0y3")
 
+[node name="frog_water_hop_audio" type="AudioStreamPlayer2D" parent="frog_hop_audio"]
+bus = &"SFX"
+
 [node name="WaterDetector" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_mask = 60

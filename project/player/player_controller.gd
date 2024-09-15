@@ -89,6 +89,7 @@ func _on_jump(angle: float, power: float):
       var v_y = direction.y * power * base_jump_velocity * water_breach_jump_boost
       velocity.y = v_y
       jumping = true  
+      $frog_hop_audio._play_hop()
         
 func _physics_process(delta: float) -> void:
     
@@ -153,6 +154,7 @@ func _on_water_detector_area_entered(area:Area2D):
       if (area.owner is Pool):
         current_pool_height = (area.owner as Pool).pool_height
         in_pool = true
+        $frog_hop_audio._play_emerge()
       else:
         #edge case
         pass
@@ -167,6 +169,7 @@ func _on_water_detector_area_exited(area):
     in_water = false
   if area.collision_layer == pool_layer:
     in_pool_override_land = false
+    $frog_hop_audio._play_emerge()
   if player_state == PlayerState.breached:
     if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
       in_pool = false

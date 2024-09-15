@@ -79,7 +79,7 @@ func start_weather(rain_amount: float, wind_amount: float):
         rain_lifetime
     )
     if weather_sfx:
-      weather_sfx._change_rain(true)
+      weather_sfx._adjust_rain(rain_amount, wind_amount)
 
 func start_rain(init_amount: int, direction, vel_min, vel_max, angle_min, angle_max, texture_w, texture_h, p_lifetime):
     var material: ParticleProcessMaterial = process_material
