@@ -10,6 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-  if (not reached_mid_level && $PlayerController.position.y < -1150):
-    audio_control._change_music(audio_control.level_upbeat, 1.5)
+  if (not reached_mid_level && $PlayerController.position.y < -895):
+    audio_control._change_music(audio_control.level_upbeat, 4.0)
     reached_mid_level = true
