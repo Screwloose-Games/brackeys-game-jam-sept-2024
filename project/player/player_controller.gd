@@ -13,11 +13,14 @@ signal state_changed(new_state: PlayerState)
 @export var water_breach_jump_boost = 2
 @export var trail_offset: Node2D
 @export var apex_velocity_max: float = 1.0
+@export var current_pool_height: float = 0
+
 
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @onready var water_ref: Node2D = %Water
 
 @onready var audio_control = AudioControl
+@onready var force_applicator: Node = %ForceApplicator
 
 var jumping = false
 var current_trail: JumpTrail
@@ -25,13 +28,17 @@ var _is_on_floor = false
 var jump_from_breach: bool = false
 var water_layer: int = 4
 var breach_layer: int = 8
+var pool_layer: int = 32
+var pool_breach_layer: int = 16
 var just_jumped = false
-@export var player_state: PlayerState = PlayerState.water:
+var in_pool: bool = false
+var in_water: bool = false
+var in_pool_override_land: bool = false
+@export var player_state: PlayerState = PlayerState.land:
   set(val):
     if val != player_state:
       state_changed.emit(val)
     player_state = val
-
 
 func _ready():
   jump_arrow.jump.connect(_on_jump)
@@ -82,11 +89,13 @@ func _on_jump(angle: float, power: float):
       var v_y = direction.y * power * base_jump_velocity * water_breach_jump_boost
       velocity.y = v_y
       jumping = true  
+      $frog_hop_audio._play_hop()
         
 func _physics_process(delta: float) -> void:
     
   match player_state:
     PlayerState.land:
+      velocity += force_applicator.get_aggregate() * delta
       if not is_on_floor():
         _is_on_floor = false
         jumping = false
@@ -109,8 +118,10 @@ func _physics_process(delta: float) -> void:
         
     PlayerState.breached:
       velocity.x *= water_damping_factor
-      if not jump_from_breach:
+      if not jump_from_breach and not in_pool:
         position = Vector2(position.x,-water_ref.current_water_height-breach_position_surface_offset)
+      elif not jump_from_breach and in_pool:
+        position= Vector2(position.x,current_pool_height)
   move_and_slide()
   
 func make_trail():
@@ -122,42 +133,74 @@ func make_trail():
   current_trail.position = trail_offset.position
 
 func _on_water_detector_area_entered(area:Area2D):
+  if area.collision_layer == water_layer:
+    in_water = true
+  if area.collision_layer == pool_layer:
+    in_pool_override_land = true
   if player_state == PlayerState.water:
-    if area.collision_layer == breach_layer:
-      player_state = PlayerState.breached
-      breached.emit()
-      velocity = Vector2.ZERO
-      #print("entering breached - play breaching water sound here")
-      $frog_hop_audio._play_emerge()
-      audio_control._toggle_water_effect(false)
+    if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
+      if in_pool:
+        #edge case
+        pass
+      elif not in_pool_override_land:
+        print("breach from enter",in_pool_override_land)
+        player_state = PlayerState.breached
+        breached.emit()
+        velocity = Vector2.ZERO
+        $frog_hop_audio._play_emerge()
+        audio_control._toggle_water_effect(false)
   if player_state == PlayerState.land or PlayerState.breached:
-    if area.collision_layer == water_layer:
-      #print("entered water - play landing in water sound")
+    if area.collision_layer == water_layer or area.collision_layer==pool_layer:
+      if (area.owner is Pool):
+        current_pool_height = (area.owner as Pool).pool_height
+        in_pool = true
+        $frog_hop_audio._play_emerge()
+      else:
+        #edge case
+        pass
       $frog_hop_audio._play_submerge()
       audio_control._toggle_water_effect(true)
       jump_from_breach = false
       exit_breached.emit()
       player_state = PlayerState.water
-  
+      
 func _on_water_detector_area_exited(area):
+  if area.collision_layer == water_layer:
+    in_water = false
+  if area.collision_layer == pool_layer:
+    in_pool_override_land = false
+    $frog_hop_audio._play_emerge()
   if player_state == PlayerState.breached:
-    if area.collision_layer == breach_layer:
+    if area.collision_layer == breach_layer or area.collision_layer == pool_breach_layer:
+      in_pool = false
       player_state = PlayerState.land
       exit_breached.emit()
       jump_from_breach = false
-      #print("on land - play jumping out of water sound")
       audio_control._toggle_water_effect(false)
   if player_state == PlayerState.water:
-    if area.collision_layer == water_layer:
-      player_state = PlayerState.breached
-      velocity = Vector2.ZERO
-      breached.emit()
-      #print("entering breached - play breaching water sound here")
-      audio_control._toggle_water_effect(false)
+    if area.collision_layer == water_layer or area.collision_layer == pool_layer:
+      if (area.owner is Pool):
+        current_pool_height = (area.owner as Pool).pool_height
+        in_pool = true
+      else:
+        pass
+        in_pool = false
+      if not in_water and not in_pool_override_land:
+        print("breach from exit", in_pool_override_land)
+        player_state = PlayerState.breached
+        velocity = Vector2.ZERO
+        breached.emit()
+        audio_control._toggle_water_effect(false)
+      else:
+        #edge case:
+        #if exiting a water/pool layer, while still in_water pool despawned
+        pass
 
 func just_jumped_delay():
   await get_tree().create_timer(0.1).timeout
   just_jumped = false
   if is_on_floor():
     landed.emit()
+    
+
   

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crk0sncn51p40"]
+
+[ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="1_npsqu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7m21"]
+shader = ExtResource("1_npsqu")
+shader_parameter/frequency = 0.0
+shader_parameter/size = 0.015
+
+[node name="RainDropScreen" type="TextureRect"]
+material = SubResource("ShaderMaterial_i7m21")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

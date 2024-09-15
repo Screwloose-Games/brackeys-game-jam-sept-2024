@@ -8,8 +8,8 @@ var gravity: float = 980 # need to get this from engine
 var base_jump_velocity = -10.0 # need to get this from player
 var water_jump_boost = 1 # need to get this from player
 var update_trajectory: bool = false
-var show_trajectory: bool = true 
-var player_state_breached: bool = true
+var show_trajectory: bool = false 
+var player_state_breached: bool = false
 var trajectory_vel: Vector2 = Vector2.ZERO
 
 

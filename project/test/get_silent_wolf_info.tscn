@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://520nps1eui4n"]
+
+[ext_resource type="Script" path="res://test/get_silent_wolf_auth.gd" id="1_klp3m"]
+
+[node name="GetSilentWolfInfo" type="Node"]
+script = ExtResource("1_klp3m")

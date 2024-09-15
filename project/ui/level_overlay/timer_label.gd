@@ -5,6 +5,13 @@ var running: bool = false
 
 @export var finish_area: FinishArea
 
+var time_ms: int:
+  get: return get_ms()
+
+# get time in milliseconds
+func get_ms() -> int:
+    return int(floor(timer * 1000))
+
 func _ready() -> void:
     text = "0:00:000"
     start()
