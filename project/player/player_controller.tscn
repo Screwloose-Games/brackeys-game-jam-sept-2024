@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bm7ywyepwryh7"]
+[gd_scene load_steps=38 format=3 uid="uid://bm7ywyepwryh7"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_pi2rc"]
 [ext_resource type="Texture2D" uid="uid://wobd7rshq4fu" path="res://assets/art/forg.png" id="2_1smhq"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bppcqdv50ik51" path="res://assets/sound/sfx/frog/frog_croak_0.wav" id="16_btbpe"]
 [ext_resource type="AudioStream" uid="uid://b81rwmi15u7j" path="res://assets/sound/sfx/frog/frog_croak_1.wav" id="17_crots"]
 [ext_resource type="AudioStream" uid="uid://dwm3by5yp5bfv" path="res://assets/sound/sfx/frog/frog_croak_2.wav" id="18_8qwn7"]
+[ext_resource type="Script" path="res://player/force_applicator.gd" id="19_p4etc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k0w"]
 size = Vector2(8, 5)
@@ -298,6 +299,10 @@ max_interval = 6.0
 unique_name_in_owner = true
 target_position = Vector2(0, 10)
 collision_mask = 2
+
+[node name="ForceApplicator" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("19_p4etc")
 
 [connection signal="area_entered" from="WaterDetector" to="." method="_on_water_detector_area_entered"]
 [connection signal="area_exited" from="WaterDetector" to="." method="_on_water_detector_area_exited"]

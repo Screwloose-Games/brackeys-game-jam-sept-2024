@@ -15,10 +15,12 @@ signal state_changed(new_state: PlayerState)
 @export var apex_velocity_max: float = 1.0
 @export var current_pool_height: float = 0
 
+
 @onready var jump_arrow: JumpArrow = %JumpArrow
 @onready var water_ref: Node2D = %Water
 
 @onready var audio_control = AudioControl
+@onready var force_applicator: Node = %ForceApplicator
 
 var jumping = false
 var current_trail: JumpTrail
@@ -37,7 +39,6 @@ var in_pool_override_land: bool = false
     if val != player_state:
       state_changed.emit(val)
     player_state = val
-
 
 func _ready():
   jump_arrow.jump.connect(_on_jump)
@@ -93,6 +94,7 @@ func _physics_process(delta: float) -> void:
     
   match player_state:
     PlayerState.land:
+      velocity += force_applicator.get_aggregate() * delta
       if not is_on_floor():
         _is_on_floor = false
         jumping = false
