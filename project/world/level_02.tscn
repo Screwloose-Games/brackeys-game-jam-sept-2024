@@ -505,6 +505,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0.458824)
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Pool4" parent="." instance=ExtResource("13_iwhj8")]
 position = Vector2(100, -560)
 
