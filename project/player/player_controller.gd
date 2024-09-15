@@ -121,7 +121,6 @@ func _physics_process(delta: float) -> void:
         position = Vector2(position.x,-water_ref.current_water_height-breach_position_surface_offset)
       elif not jump_from_breach and in_pool:
         position= Vector2(position.x,current_pool_height)
-  var vel = velocity
   move_and_slide()
   
 func make_trail():
