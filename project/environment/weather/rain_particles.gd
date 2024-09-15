@@ -16,6 +16,7 @@ extends GPUParticles2D
     start_weather(rain, wind)
     weather_updated.emit(rain, wind)
 
+
 signal weather_updated(rain: float, wind: float)
 
 func set_weather(init_rain: float, init_wind: float):
@@ -66,6 +67,7 @@ func start_weather(rain_amount: float, wind_amount: float):
     var texture_width = lerp(1, 2, rain_amount)
     var texture_height = lerp(10, 64, rain_amount)
     var rain_lifetime = 0.4 
+    var effect_modulate = lerp(48,208, rain_amount)
 
     start_rain(
         rain_intensity, 
@@ -76,12 +78,13 @@ func start_weather(rain_amount: float, wind_amount: float):
         rain_angle_max, 
         texture_width, 
         texture_height, 
-        rain_lifetime
+        rain_lifetime,
+        effect_modulate,
     )
     if weather_sfx:
       weather_sfx._adjust_rain(rain_amount, wind_amount)
 
-func start_rain(init_amount: int, direction, vel_min, vel_max, angle_min, angle_max, texture_w, texture_h, p_lifetime):
+func start_rain(init_amount: int, direction, vel_min, vel_max, angle_min, angle_max, texture_w, texture_h, p_lifetime,effect_modulate):
     var material: ParticleProcessMaterial = process_material
     amount = init_amount
     material.direction = direction
@@ -89,6 +92,7 @@ func start_rain(init_amount: int, direction, vel_min, vel_max, angle_min, angle_
     material.initial_velocity_max = vel_max
     material.angle_min = angle_min
     material.angle_max = angle_max
+    modulate = Color(1,1,1,effect_modulate)
 
     var text: GradientTexture2D = texture
     text.width = texture_w
