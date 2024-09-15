@@ -159,6 +159,23 @@ stream = ExtResource("5_ie0p8")
 stream = ExtResource("4_ekion")
 
 [node name="LevelOverOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("finish_area")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layer = 1
+visible = true
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+follow_viewport_enabled = false
+follow_viewport_scale = 1.0
 script = ExtResource("12_owhkd")
 finish_area = NodePath("../FinishArea")
 
@@ -212,6 +229,24 @@ grow_vertical = 2
 color = Color(0.109804, 0.109804, 0.109804, 0.580392)
 
 [node name="LevelOverlay" type="CanvasLayer" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layer = 1
+visible = true
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+follow_viewport_enabled = false
+follow_viewport_scale = 1.0
+script = null
 
 [node name="Control" type="Control" parent="LevelOverlay"]
 layout_mode = 3
@@ -244,7 +279,24 @@ position = Vector2(127.5, -1012)
 shape = SubResource("RectangleShape2D_231lq")
 
 [node name="DebugUILayer" type="CanvasLayer" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layer = 4
+visible = true
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+follow_viewport_enabled = false
+follow_viewport_scale = 1.0
+script = null
 
 [node name="WaterDebugScreenRect" type="ColorRect" parent="DebugUILayer"]
 unique_name_in_owner = true
