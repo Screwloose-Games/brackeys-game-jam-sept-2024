@@ -30,6 +30,7 @@ var init_music : bool
 # Called when the node enters the scene tree for the first time.
 # init bus volumes and effects and play theme music
 func _ready() -> void:
+  process_mode = PROCESS_MODE_ALWAYS
   _set_volume(audio_bus_type.MASTER, master_vol)
   _set_volume(audio_bus_type.SFX, sfx_vol)
   _set_volume(audio_bus_type.MUSIC, music_vol)

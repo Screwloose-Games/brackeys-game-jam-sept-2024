@@ -13,6 +13,7 @@ func _ready() -> void:
   light_rain_vol = db_to_linear(light_rain_vol)
   heavy_rain_vol = db_to_linear(heavy_rain_vol)
   wind_vol = db_to_linear(wind_vol)
+  process_mode = PROCESS_MODE_ALWAYS
   _play_rain()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

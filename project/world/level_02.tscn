@@ -1,11 +1,11 @@
-[gd_scene load_steps=47 format=4 uid="uid://dmfpa0geogja2"]
+[gd_scene load_steps=48 format=4 uid="uid://dmfpa0geogja2"]
 
 [ext_resource type="Script" path="res://world/level_01.gd" id="1_y7i85"]
 [ext_resource type="Texture2D" uid="uid://n376klprxrus" path="res://assets/art/well_background.png" id="2_6axcf"]
 [ext_resource type="Shader" path="res://environment/drips_visibility.gdshader" id="3_1wbwm"]
 [ext_resource type="Texture2D" uid="uid://dkpjo8sooj1au" path="res://assets/art/fx/drip.png" id="4_hgn72"]
 [ext_resource type="Script" path="res://world/drip_tiles.gd" id="5_pqqi2"]
-[ext_resource type="PackedScene" uid="uid://cx5wjnc7l01g4" path="res://environment/platforms/level_tile_map.tscn" id="6_hntvu"]
+[ext_resource type="PackedScene" uid="uid://cxrdoo0k1vvdv" path="res://environment/platforms/level_tile_map.tscn" id="6_hntvu"]
 [ext_resource type="TileSet" uid="uid://digwd7rbe2n4o" path="res://environment/platforms/platform_tile_set.tres" id="7_f0y7e"]
 [ext_resource type="TileSet" uid="uid://c10r75brmaqvk" path="res://environment/edge_tile_set.tres" id="8_exqb5"]
 [ext_resource type="Texture2D" uid="uid://xe6da44hjqe5" path="res://assets/art/brick_edge.png" id="9_ndr83"]
@@ -23,8 +23,9 @@
 [ext_resource type="Script" path="res://environment/weather/rain_particles.gd" id="20_culta"]
 [ext_resource type="Script" path="res://environment/weather/weather_initializer.gd" id="21_gr6kd"]
 [ext_resource type="Shader" path="res://test/rain_drop_screen.gdshader" id="21_yxxe7"]
-[ext_resource type="AnimationLibrary" uid="uid://cn7genq8g4fvs" path="res://environment/weather/weather_animation_library.tres" id="23_ce4i5"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://heutwne4g8qh" path="res://environment/weather/weather_animation_tree.tres" id="23_qkftk"]
+[ext_resource type="PackedScene" path="res://ui/level_overlay/pause_menu.tscn" id="22_kgjiq"]
+[ext_resource type="AnimationLibrary" uid="uid://mncnbprhxusw" path="res://environment/weather/weather_animation_library.tres" id="23_ce4i5"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://emlmsabwdjp8" path="res://environment/weather/weather_animation_tree.tres" id="23_qkftk"]
 [ext_resource type="PackedScene" uid="uid://ddaoocd725f7r" path="res://NPCs/party_frog.tscn" id="26_25msv"]
 [ext_resource type="Texture2D" uid="uid://euk7s5jpy7jn" path="res://assets/art/environment/forg_party_sign.png" id="27_te07l"]
 [ext_resource type="Texture2D" uid="uid://cuws52vdm6tgu" path="res://assets/art/environment/almost_there_sign.png" id="28_cugca"]
@@ -240,23 +241,6 @@ stream = ExtResource("17_2dtyi")
 bus = &"SFX"
 
 [node name="LevelOverOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("finish_area")]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layer = 1
-visible = true
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-follow_viewport_enabled = false
-follow_viewport_scale = 1.0
 script = ExtResource("17_5bhpg")
 finish_area = NodePath("../FinishArea")
 
@@ -324,24 +308,6 @@ grow_vertical = 2
 text = "Next"
 
 [node name="LevelOverlay" type="CanvasLayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layer = 1
-visible = true
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-follow_viewport_enabled = false
-follow_viewport_scale = 1.0
-script = null
 
 [node name="Control" type="Control" parent="LevelOverlay"]
 layout_mode = 3
@@ -374,23 +340,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_231lq")
 
 [node name="WeatherVisualEffects" type="CanvasLayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layer = 1
-visible = true
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
 follow_viewport_enabled = true
-follow_viewport_scale = 1.0
 script = ExtResource("21_gr6kd")
 
 [node name="WeatherController" type="GPUParticles2D" parent="WeatherVisualEffects" node_paths=PackedStringArray("follow_target") groups=["WeatherController"]]
@@ -434,24 +384,7 @@ tree_root = ExtResource("23_qkftk")
 anim_player = NodePath("../WeatherAnimationPlayer")
 
 [node name="UIVisualEffects" type="CanvasLayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 layer = 5
-visible = true
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-follow_viewport_enabled = false
-follow_viewport_scale = 1.0
-script = null
 
 [node name="Control" type="Control" parent="UIVisualEffects"]
 layout_mode = 3
@@ -479,24 +412,7 @@ offset_right = 18.0
 offset_bottom = -66.0
 
 [node name="DebugUILayer" type="CanvasLayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 layer = 4
-visible = true
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-follow_viewport_enabled = false
-follow_viewport_scale = 1.0
-script = null
 
 [node name="WaterDebugScreenRect" type="ColorRect" parent="DebugUILayer"]
 unique_name_in_owner = true
@@ -504,6 +420,9 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0.458824)
+
+[node name="PauseMenu" parent="." instance=ExtResource("22_kgjiq")]
+layer = 4
 
 [node name="Pool4" parent="." instance=ExtResource("13_iwhj8")]
 position = Vector2(100, -560)

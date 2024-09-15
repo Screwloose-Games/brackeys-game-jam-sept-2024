@@ -11,7 +11,6 @@ extends Camera2D
 
 func _ready():
     if not target:
-        # Optionally, automatically find a target named "Player" in the scene tree
         target = get_node_or_null("Player")
         if not target:
             print("No target assigned or found.")
