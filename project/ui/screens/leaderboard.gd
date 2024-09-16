@@ -28,7 +28,7 @@ func _ready():
   else:
     # use a signal to notify when the high scores have been returned, and show a "loading" animation until it's the case...
     add_loading_scores_message()
-    var sw_result = await SilentWolf.Scores.get_scores().sw_get_scores_complete
+    var sw_result = await SilentWolf.Scores.get_scores(0).sw_get_scores_complete
     scores = sw_result.scores
     scores.sort_custom(sort_by_time)
     hide_message()
