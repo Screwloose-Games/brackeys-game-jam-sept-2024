@@ -30,6 +30,7 @@ var is_option_menu_open : bool
 func _ready() -> void:
   audio_control._init_music(audio_control.theme)
   leaderboard_button.pressed.connect(_on_leaderboard_button_pressed)
+  leaderboard_button.mouse_entered.connect(_on_options_button_mouse_entered)
   
   #set values for sliders
   master_vol_slider.value = audio_control._get_volume_normalized(audio_control.audio_bus_type.MASTER)
