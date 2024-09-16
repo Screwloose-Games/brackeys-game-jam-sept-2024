@@ -28,7 +28,12 @@ var scene_transition = SceneTransitionManager
 var is_option_menu_open : bool
 
 func _ready() -> void:
-  audio_control._init_music(audio_control.theme)
+  if (not audio_control.init_music):
+    audio_control._init_music(audio_control.theme)
+  else:
+    if (not audio_control.current_song == audio_control.theme):
+      audio_control._change_music(audio_control.theme, 1.5)
+    
   leaderboard_button.pressed.connect(_on_leaderboard_button_pressed)
   leaderboard_button.mouse_entered.connect(_on_options_button_mouse_entered)
   
@@ -40,6 +45,7 @@ func _ready() -> void:
   options.hide()
 
 func _on_leaderboard_button_pressed():
+  ui_audio._confirm()
   SceneTransitionManager.change_scene_with_transition(SceneManager.LEADERBOARD, SceneManager.CIRCLE_TRANSITION)
 
 func _on_start_button_pressed() -> void:
