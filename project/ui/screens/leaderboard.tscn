@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy4ci54adu52g"]
+[gd_scene load_steps=11 format=3 uid="uid://cy4ci54adu52g"]
 
 [ext_resource type="Script" path="res://ui/screens/leaderboard.gd" id="1_xg0f3"]
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="2_658n8"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://d0uu51nwfacvr" path="res://assets/art/ui/buttons and sliders/main_menu_button_pressed.png" id="6_miw0f"]
 [ext_resource type="Texture2D" uid="uid://beaum368laiw4" path="res://assets/art/ui/buttons and sliders/main_menu_button_hover.png" id="7_meocr"]
 [ext_resource type="Texture2D" uid="uid://btme2rntnrlcm" path="res://assets/art/ui/buttons and sliders/leaderboard_page_header.png" id="8_dehhk"]
+
+[sub_resource type="Theme" id="Theme_22vfo"]
+Label/constants/outline_size = 1
+Label/font_sizes/font_size = 24
+VBoxContainer/constants/separation = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2p04w"]
 font = ExtResource("3_x470o")
@@ -24,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_22vfo")
 script = ExtResource("1_xg0f3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -108,25 +114,23 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighScores" type="Control" parent="Board"]
+[node name="HighScores" type="ScrollContainer" parent="Board"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 50.0
+offset_right = -102.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="ScoreItemContainer" type="VBoxContainer" parent="Board/HighScores"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
