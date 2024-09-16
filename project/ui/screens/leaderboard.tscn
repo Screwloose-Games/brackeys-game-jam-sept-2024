@@ -1,21 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy4ci54adu52g"]
+[gd_scene load_steps=14 format=3 uid="uid://cy4ci54adu52g"]
 
 [ext_resource type="Script" path="res://ui/screens/leaderboard.gd" id="1_xg0f3"]
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="2_658n8"]
-[ext_resource type="FontFile" uid="uid://ckll30bntmg2q" path="res://assets/art/ui/fonts/MORN FROGY.otf" id="3_x470o"]
+[ext_resource type="Shader" path="res://ui/main_menu_water_bg.gdshader" id="3_35h2l"]
 [ext_resource type="Script" path="res://ui/screens/main_menu_button.gd" id="4_ufc66"]
 [ext_resource type="Texture2D" uid="uid://hhucpisklhnq" path="res://assets/art/ui/buttons and sliders/main_menu_button_static.png" id="5_fb516"]
+[ext_resource type="Texture2D" uid="uid://ca1h0shn6wvny" path="res://assets/art/ui/buttons and sliders/general_ui_bg.png" id="5_t6rs8"]
 [ext_resource type="Texture2D" uid="uid://d0uu51nwfacvr" path="res://assets/art/ui/buttons and sliders/main_menu_button_pressed.png" id="6_miw0f"]
 [ext_resource type="Texture2D" uid="uid://beaum368laiw4" path="res://assets/art/ui/buttons and sliders/main_menu_button_hover.png" id="7_meocr"]
 [ext_resource type="Texture2D" uid="uid://btme2rntnrlcm" path="res://assets/art/ui/buttons and sliders/leaderboard_page_header.png" id="8_dehhk"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2p04w"]
-font = ExtResource("3_x470o")
-font_size = 36
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c266t"]
+bg_color = Color(0, 0, 0, 0)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+expand_margin_left = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwve1"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_22vfo"]
+Label/constants/outline_size = 1
+Label/font_sizes/font_size = 24
+Panel/styles/panel = SubResource("StyleBoxFlat_c266t")
+ScrollContainer/styles/panel = SubResource("StyleBoxTexture_pwve1")
+VBoxContainer/constants/separation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0ki5"]
+shader = ExtResource("3_35h2l")
+shader_parameter/background_color = Color(0, 0.720236, 0.720236, 1)
 
 [node name="NewLeaderboard" type="Control"]
 layout_mode = 3
@@ -24,9 +41,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_22vfo")
 script = ExtResource("1_xg0f3")
 
+[node name="WaterBG" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g0ki5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -145.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,32 +78,19 @@ texture = ExtResource("2_658n8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TitleText" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -171.0
-offset_top = -13.0
+offset_top = -1.0
 offset_right = 171.0
-offset_bottom = 53.0
+offset_bottom = 65.0
 grow_horizontal = 2
 texture = ExtResource("8_dehhk")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Title" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "Leaderboard"
-label_settings = SubResource("LabelSettings_2p04w")
 
 [node name="Board" type="Control" parent="."]
 layout_mode = 1
@@ -82,6 +100,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BG" type="TextureRect" parent="Board"]
+self_modulate = Color(0.864675, 0.864675, 0.864675, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 36.0
+offset_right = -51.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_t6rs8")
+expand_mode = 1
+
 [node name="MessageContainer" type="Control" parent="Board"]
 layout_mode = 1
 anchors_preset = 8
@@ -89,6 +122,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -69.0
+offset_bottom = -69.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -108,45 +143,40 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighScores" type="Control" parent="Board"]
+[node name="HighScores" type="ScrollContainer" parent="Board"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 50.0
+offset_right = -102.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
 
 [node name="ScoreItemContainer" type="VBoxContainer" parent="Board/HighScores"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -81.0
-offset_top = -81.0
-offset_right = 81.0
-offset_bottom = 4.0
+offset_top = -66.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = -7
 
 [node name="MainMenuButton" type="TextureButton" parent="MarginContainer"]
 unique_name_in_owner = true
 texture_filter = 4
-custom_minimum_size = Vector2(100, 75)
+custom_minimum_size = Vector2(91, 66)
 layout_mode = 2
 action_mode = 0
 texture_normal = ExtResource("5_fb516")
