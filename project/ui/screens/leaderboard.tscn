@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy4ci54adu52g"]
+[gd_scene load_steps=15 format=3 uid="uid://cy4ci54adu52g"]
 
 [ext_resource type="Script" path="res://ui/screens/leaderboard.gd" id="1_xg0f3"]
 [ext_resource type="Texture2D" uid="uid://pe0i7iwnf1eq" path="res://assets/art/ui/menu_bg.png" id="2_658n8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0uu51nwfacvr" path="res://assets/art/ui/buttons and sliders/main_menu_button_pressed.png" id="6_miw0f"]
 [ext_resource type="Texture2D" uid="uid://beaum368laiw4" path="res://assets/art/ui/buttons and sliders/main_menu_button_hover.png" id="7_meocr"]
 [ext_resource type="Texture2D" uid="uid://btme2rntnrlcm" path="res://assets/art/ui/buttons and sliders/leaderboard_page_header.png" id="8_dehhk"]
+[ext_resource type="PackedScene" uid="uid://tl80aws2fga4" path="res://world/ui_audio.tscn" id="10_grxjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c266t"]
 bg_color = Color(0, 0, 0, 0)
@@ -78,6 +79,21 @@ texture = ExtResource("2_658n8")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="BG" type="TextureRect" parent="."]
+self_modulate = Color(0.864675, 0.864675, 0.864675, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 36.0
+offset_right = -51.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_t6rs8")
+expand_mode = 1
+
 [node name="TitleText" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -99,21 +115,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="Board"]
-self_modulate = Color(0.864675, 0.864675, 0.864675, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 44.0
-offset_top = 36.0
-offset_right = -51.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_t6rs8")
-expand_mode = 1
 
 [node name="MessageContainer" type="Control" parent="Board"]
 layout_mode = 1
@@ -185,3 +186,6 @@ texture_hover = ExtResource("7_meocr")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("4_ufc66")
+
+[node name="ui_audio" parent="." instance=ExtResource("10_grxjb")]
+unique_name_in_owner = true
