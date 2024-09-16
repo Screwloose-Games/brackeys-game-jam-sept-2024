@@ -21,21 +21,26 @@ enum track_type { TRACK_A, TRACK_B }
 @onready var track_b = $track_B
 
 var current_track = track_type.TRACK_A
+var current_song : AudioStreamMP3
 
 #filter
 var lps_filter : AudioEffectFilter
 
+var init_audio : bool
 var init_music : bool
 
-# Called when the node enters the scene tree for the first time.
+var is_filter_on : bool
+
 # init bus volumes and effects and play theme music
 func _ready() -> void:
-  process_mode = PROCESS_MODE_ALWAYS
-  _set_volume(audio_bus_type.MASTER, master_vol)
-  _set_volume(audio_bus_type.SFX, sfx_vol)
-  _set_volume(audio_bus_type.MUSIC, music_vol)
+  if (not init_audio):
+    process_mode = PROCESS_MODE_ALWAYS
+    _set_volume(audio_bus_type.MASTER, master_vol)
+    _set_volume(audio_bus_type.SFX, sfx_vol)
+    _set_volume(audio_bus_type.MUSIC, music_vol)
   
-  _init_filter()
+    _init_filter()
+    init_audio = true
   
 func _get_volume_normalized(audio_type : audio_bus_type) -> float:
   match(audio_type):
@@ -76,6 +81,7 @@ func _init_music(new_track : AudioStreamMP3) -> void:
   track_b.volume_db = -80.0
   track_a.volume_db = 0.0
   track_a.stream = new_track
+  current_song = new_track
   track_a.play()
   init_music = true
   
@@ -87,6 +93,7 @@ func _init_filter() -> void:
   
 func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
   var last_track = current_track
+  current_song = new_track
   match (current_track):
     track_type.TRACK_A:
       last_track = track_type.TRACK_B
@@ -97,7 +104,7 @@ func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
       #tween other track to stop using transition time and stop playing after transition time
       var tween = get_tree().create_tween()
       tween.tween_property(track_b, ":volume_db", linear_to_db(1.0), transition_time)
-      tween.tween_property(track_a, ":volume_db", linear_to_db(0.0001), transition_time)
+      tween.tween_property(track_a, ":volume_db", linear_to_db(0.001), transition_time)
       
     track_type.TRACK_B:
       last_track = track_type.TRACK_A
@@ -108,11 +115,14 @@ func _change_music(new_track : AudioStreamMP3, transition_time : float) -> void:
       #tween other track to stop using transition time and stop playing after transition time
       var tween = get_tree().create_tween()
       tween.tween_property(track_a, ":volume_db", linear_to_db(1.0), transition_time)
-      tween.tween_property(track_b, ":volume_db", linear_to_db(0.0001), transition_time)
+      tween.tween_property(track_b, ":volume_db", linear_to_db(0.001), transition_time)
     
   current_track = last_track
   
 func _toggle_water_effect(is_under_water : bool) -> void:
+  if (is_under_water == is_filter_on):
+    pass
+  
   if (is_under_water):
     if (is_instance_valid(get_tree())):
       var tween = get_tree().create_tween()

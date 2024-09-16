@@ -103,6 +103,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
-text = "SUMBIT YOU'RE TIME!"
+text = "SUMBIT YOUR TIME!"
 
 [connection signal="pressed" from="Node2D/LineEdit/Button" to="." method="_on_button_pressed"]
